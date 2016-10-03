@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,100,100italic,300,300italic,400italic,500italic,700,700italic,900,900italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	
+	<link href="css/jquery-ui.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/jquery.knob.js"></script>
+	<script src="js/highcharts.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function($) {
+	   
+	   
+	   //вычисляем высоту контейнера сообщений чата, отнимая совокупные высоты блока-заголовка собеседника и область отправки
+	    var height_win = $(window).height();
+		height_win = height_win - 280;
+	    $('.chat').height(height_win);
+		
+		
+		//граница поля дейтпикера при фокусе
+		$('.floater input').focus(function(){
+			  $(this).css('border-bottom','1px solid #3eb8e6');
+			}).blur(function(){
+			  $(this).css('border-bottom','1px solid #e8e8e9');
+		});
+		
+		
+		//эффекты поиска при фокусе
+		$('.search-header input').focus(function(){
+		  $('.searchbut').addClass('pushed');
+		  $(this).parent().addClass('search-lined');
+		}).blur(function(){
+		  $('.searchbut').removeClass('pushed');
+		  $(this).parent().removeClass('search-lined');
+		});
+		
+			
+		//анимация ховеров в уведомлениях	
+		$('.inner_user .item').hover(
+		function(){
+		  $(this).children('.pict').stop().animate({width: "396px"}, 300);
+		  $(this).children('.pict').children('.hover_task').show();
+		},
+		function(){
+		  $(this).children('.pict').stop().animate({width: "110px"}, 300);
+		  $(this).children('.pict').children('.hover_task').hide()
+		});
+		
+		
+        //анимация ховеров таблицы запросов
+		$('.searchline').hover(
+		function(){
+			$(this).children('.searchline_inner').children('.eye').addClass('eye2');
+		},
+		function(){
+			$(this).children('.searchline_inner').children('.eye').removeClass('eye2');
+		});
+		
+		
+		
+
+		
+		// привязка jquery-ui дейтпикера 
+		$(function() {
+			$( "#from" ).datepicker({
+				defaultDate: "+1w",
+				changeMonth: false,
+				numberOfMonths: 1,
+				onClose: function( selectedDate ) {
+					$( "#to" ).datepicker( "option", "minDate", selectedDate );
+					$(this).parent().next().children().focus();
+				}
+			});
+			
+			
+			$( "#to" ).datepicker({
+			
+				defaultDate: "+1w",
+				changeMonth: false,
+				numberOfMonths: 1,
+				onClose: function( selectedDate ) {
+					$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+				},
+				
+				beforeShow: function(input, inst) {
+				    var rect = input.getBoundingClientRect();
+					setTimeout(function () {
+					    var wid = $(window).width();
+						inst.dpDiv.css({left: wid - 312 });
+					}, 0);
+				}		
+				
+			});
+			
+		});
+		
+
+		
+		
+		
+		//табы статистики
+		$(".statistic .list_tabs li").click(function(event) {
+			event.preventDefault();
+			$(".statistic .list_tabs li").removeClass("active");
+			$(this).addClass("active");
+		}); 
+		
+		//табы статистики, имитация активности дейтпикера по клику на таб "за период" и скрытие-развертывание варианта статистики
+		$(".statistic .list_tabs li.period").click(function(){
+		    $("#datepicker").show();
+			 $("#from").trigger('click');
+			 $("#from").trigger('change');
+			 $("#from").trigger('focus');
+		}); 
+		$(".statistic .list_tabs li.today").click(function(){
+		    $("#datepicker").hide();
+		}); 
+		
+		
+        //скрываем аттачи по клику 
+		
+		$(".downloaded_files span a.delete").click(function(event){
+		    event.preventDefault();
+		    $(this).parent().remove();
+		}); 
+		
+		
+		
+		
+		//табы графиков
+		
+		//активность вкладки
+		$(".graphic .list_tabs li").click(function(event) {
+			event.preventDefault();
+			$(".graphic .list_tabs li").removeClass("active");
+			$(this).addClass("active");
+		}); 
+		
+		//выбор графика по клику на табы
+		$(".graphic .list_tabs li#days_grapf").click(function(){
+		    $("#container").hide();
+			 $("#container2").show();
+		}); 
+		$(".graphic .list_tabs li#month_grapf").click(function(){
+		    $("#container").show();
+			 $("#container2").hide();
+		}); 
+		
+		
+		
+		//скрытие-отображение списка собеседников
+        
+		$(".bg_send_header").click(function(){
+		    $('.inner_chat1 .users').toggle("slide", { direction: "left" }, 300);
+		}); 
+		
+		
+		//ховер кнопки "написать сообщение"
+		$('.bg_send_header').hover(
+			function(){
+			  $(this).children('.hover_but_send').stop().animate({width: "450px"}, 300);
+			},
+			function(){
+			  $(this).children('.hover_but_send').stop().animate({width: "0"}, 300);
+			});
+
+		
+		//активация основного чата
+		
+		//по клику на юзера
+		$(".users_item_mini").click(function(event){
+		    event.preventDefault();
+		    //var id_chat = $('.users_item_mini').attr('id');
+		    $('.inner_chat2').show("slide", { direction: "right" }, 300);
+			$('.inner_chat1').hide("slide", { direction: "right" }, 300);
+			//автоскролл основного чата 
+			setTimeout( function() {
+				$('.chat').scrollTop(100000000000000)
+			}, 500 );
+			
+		}); 
+		
+		//по клику на групповой чат
+		$(".inner_chat1 .item").click(function(event){
+		    event.preventDefault();
+		    //var id_chat = $('.users_item_mini').attr('id');
+		    $('.inner_chat2').show("slide", { direction: "right" }, 300);
+			$('.inner_chat1').hide("slide", { direction: "right" }, 300);
+			//автоскролл основного чата 
+			setTimeout( function() {
+				$('.chat').scrollTop(100000000000000)
+			}, 500 );
+		}); 
+		
+		//При клике на body область все всплывающие окна исчезают
+		$(document).click( function(event){
+		  $('.inner_chat1').hide("slide", { direction: "right" }, 300);
+		  $('.inner_chat2').hide("slide", { direction: "right" }, 300);
+		  $('.inner_user').hide("slide", { direction: "right" }, 300);
+		});
+		
+		$(".right_block").click(function(event){
+		    event.stopPropagation();
+		}); 
+		
+		
+		//ховер групповых чатов
+		$('.inner_chat1 .item').hover(
+			function(){
+			  $(this).children('.hover').stop().animate({width: "450px"}, 300);
+			},
+			function(){
+			  $(this).children('.hover').stop().animate({width: "0"}, 300);
+		});
+		
+		//отправка сообщения
+		$('.message_send_panel input[type="submit"]').on('click', function(event){
+		    event.preventDefault();
+			
+			
+			//автопрокрутка окна чата при новом сообщении
+			setTimeout( function() {
+				$('.chat').scrollTop(100000000000000)
+			}, 0 );
+			
+			
+			//отрисовка сообщения, генерация контента имитируется из текстового поля
+		    var message = $('.message_send_panel textarea').val(); //сообщение, но в итоге наверно будет аякс, к тому же проблема запихнуть в генерируемый блок аттачи :(
+			var posted_message = '<div class="interlocutor"><div class="answer"><div class="read"><div class="text"><div class="inner_text">' + message + '</div></div></div><div class="time">11 minutes ago</div></div></div>';
+			
+			if(message !== ""){
+			
+			$(".chat_inner").append(posted_message);
+			
+		    //капельная анимация сообщения
+			  $('.interlocutor:last-child').css({"right":"150px", "top": "75px"});
+			  $('.interlocutor:last-child').animate({
+				opacity: "show",
+				height: "show",
+				width: "show",
+				top: "0",
+				right: "0"
+			  }, {
+				duration: 300, 
+				specialEasing: {
+				  opacity: 'linear',
+				  height: 'swing'
+				}
+			  });
+			  
+			  //скролл под новое сообщение
+			  setTimeout( function() {
+				$('.chat').scrollTop(100000000000000)
+			  }, 500 );
+			  
+			 // очистка текстового поля после отправки
+			  var message = $('.message_send_panel textarea').val("");
+			
+			}
+		  
+		});
+		
+		
+		
+		
+		
+		//открытие корневого окна чата по клику на иконку
+		
+		$(".userlist li.item2").click(function() {
+			$(".inner_user").show("slide", { direction: "right" }, 300);
+		}); 
+		
+		//открытие корневого окна уведомлений по клику на иконку
+		$(".userlist li.item3").click( function() { 
+			$(".inner_chat1").show("slide", { direction: "right" }, 300); 
+		});
+		
+		//скрытие окон чата по клику на верхнюю левую кнопку гамбургера
+		
+		$(".inner_user_head span.opener").click(function() {
+			$(".inner_user").hide("slide", { direction: "right" }, 300);
+		}); 
+		$(".inner_chat1 .inner_user_head span.opener").click(function() {
+			$(".inner_chat1").hide("slide", { direction: "right" }, 300);
+		}); 
+		$(".inner_chat2 .inner_user_head_chat span.opener").click(function() {
+			$(".inner_chat2").hide("slide", { direction: "right" }, 300);
+			$('.inner_chat1 .users').hide("slide", { direction: "right" }, 300);
+		}); 
+		
+		//инициация круговых диаграмм
+		$(".blueCircle").knob({
+			'readOnly': true,
+			'width': 78,
+			'height': 78,
+			'fgColor': '#50cfea',
+			'dynamicDraw': false,
+			'thickness': 0.06,
+			'tickColorizeValues': true,
+			'skin':'tron'
+		});
+		
+
+		
+		
+		
+		//события учитывающие изменение размеров окна
+		$(window).on("load resize", function(){
+		
+		
+		
+		    //ховеры на областях статистики
+		    var width_round_inner = $('.round_inner').width();
+			 $('.round_inner a.hover').width(width_round_inner);
+		
+		
+		    //динамическая ширина блока поиска
+		    var width_topblock = $('.topblock').width();
+			var resized2 = width_topblock - 644;
+			$('.search-header').width(resized2);
+		
+		    //динамическая подгонка высоты сайдбара
+		    var d_height = $(document).height();  
+            var height_topblock = $('.right_content').height();
+			$('aside').height(d_height);
+			
+			
+			//динамическая подгонка высоты списка собеседников в чате
+			var height_users_outer = $('.inner_chat1').height();
+			$('.inner_chat1 .users').height(height_users_outer);
+	
+	
+	        //динамическая подгонка ширины графиков, учет под свг-графику
+			var wid_graph = $('.graphic').width();
+			
+			$('#container').width(wid_graph);
+			$('#container2').width(wid_graph);
+            
+			
+			
+			
+			
+			
+			
+			
+			//графики
+			
+			//месячный график
+			$('#container').highcharts({
+				chart: {
+					type: 'line'
+				},
+				title: {
+					text: ''
+				},
+				subtitle: {
+					text: ''
+				},
+				xAxis: {
+				    //значения по оси абсцисс
+					categories: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+					
+					//значения по оси абсцисс
+					plotLines: [{
+						color: '#eaeaea', 
+						width: 1,
+						value: 0.5 // вертикальначя направляющая
+					},{
+						color: '#eaeaea', 
+						width: 1,
+						value: 1.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 2.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 3.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 4.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 5.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 6.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 7.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 8.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 9.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 10.5 // Position, you'll have to translate this to the values on your x axis
+					}],
+					labels: {
+						style: {
+							color: '#cfcfcf',
+							fontSize:'14px',
+							textTransform:'uppercase'
+						}
+					}
+					
+				},
+				yAxis: {
+					title: {
+						text: ''
+					},
+					labels: {
+						formatter: function () {
+							return '$' + this.value ;
+						},
+						style: {
+							color: '#cfcfcf',
+							fontSize:'18px'
+						}
+					}
+				},
+				tooltip: {
+					crosshairs: true,
+					shared: true,
+					formatter: function() {
+						return 'The value for <b>' + this.x + '</b> <br /> <b>' + this.y + '</b> <br /> <a href="#">test</a>';
+					}
+				},
+				plotLines: {
+						color: '#eaeaea', 
+						width: 1
+						
+					},
+				
+				plotOptions: {
+					series: {
+						cursor: 'pointer',
+						point: {
+							events: {
+								click: function () {
+									location.href = this.options.url;
+								}
+							}
+						}
+					},
+					spline: {
+						marker: {
+							radius: 6,
+							lineColor: '#ccc',
+							lineWidth: 4,
+							
+						}
+					}
+				},
+				series: [{
+					lineWidth: 3,
+					color: '#acb4b8',
+					width:20,
+					name: 'График прибыли',
+					marker: {
+						symbol: 'url(img/dot_graf.png)'
+					},
+					data: [{
+						y: 3000,
+						url: 'http://bing.com/search?q=foo'
+					}, {
+						y: 2000,
+						url: 'http://bing.com/search?q=bar'
+					}, {
+						y: 3000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 2000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 3000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 4500,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 3000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 3600,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 3200,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 4000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 2800,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 3400,
+						url: 'http://bing.com/search?q=foo+bar'
+					}]
+				}]
+			});
+			
+			
+			
+			//дневной график
+			
+			
+			
+			$('#container2').highcharts({
+				chart: {
+					type: 'line'
+				},
+				title: {
+					text: ''
+				},
+				subtitle: {
+					text: ''
+				},
+				xAxis: {
+					categories: ['1 апреля', '2 апреля', '3 апреля', '4 апреля', '5 апреля', '6 апреля',
+						'7 апреля'],
+					plotLines: [{
+						color: '#eaeaea', 
+						width: 1,
+						value: 0.5 // Position, you'll have to translate this to the values on your x axis
+					},{
+						color: '#eaeaea', 
+						width: 1,
+						value: 1.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 2.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 3.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 4.5 // Position, you'll have to translate this to the values on your x axis
+					}
+					,{
+						color: '#eaeaea', 
+						width: 1,
+						value: 5.5 // Position, you'll have to translate this to the values on your x axis
+					}],
+					labels: {
+						style: {
+							color: '#cfcfcf',
+							fontSize:'14px',
+							textTransform:'uppercase'
+						}
+					}
+					
+				},
+				yAxis: {
+					title: {
+						text: ''
+					},
+					labels: {
+						formatter: function () {
+							return '$' + this.value ;
+						},
+						style: {
+							color: '#cfcfcf',
+							fontSize:'18px'
+						}
+					}
+				},
+				tooltip: {
+					crosshairs: true,
+					shared: true,
+					formatter: function() {
+						return 'The value for <b>' + this.x + '</b> <br /> <b>' + this.y + '</b> <br /> <a href="#">test</a>';
+					}
+				},
+				plotLines: {
+						color: '#eaeaea', 
+						width: 1
+						
+					},
+				
+				plotOptions: {
+					series: {
+						cursor: 'pointer',
+						point: {
+							events: {
+								click: function () {
+									location.href = this.options.url;
+								}
+							}
+						}
+					},
+					spline: {
+						marker: {
+							radius: 6,
+							lineColor: '#ccc',
+							lineWidth: 4,
+							
+						}
+					}
+				},
+				series: [{
+					lineWidth: 3,
+					color: '#acb4b8',
+					width:20,
+					name: 'График прибыли',
+					marker: {
+						symbol: 'url(img/dot_graf.png)'
+					},
+					data: [{
+						y: 3000,
+						url: 'http://bing.com/search?q=foo'
+					}, {
+						y: 2000,
+						url: 'http://bing.com/search?q=bar'
+					}, {
+						y: 3000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 2000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 3000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 4500,
+						url: 'http://bing.com/search?q=foo+bar'
+					}, {
+						y: 3000,
+						url: 'http://bing.com/search?q=foo+bar'
+					}]
+				}]
+			});
+			
+			
+		});
+		
+		
+		
+		
+		
+  
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		 
+	});	
+
+
+
+
+
+	
+	</script>
+	
+
+
+	
+  </head>
+  <body>
+
+    <div class="container">
+		
+			<aside>
+			
+				<ul class="icons1">
+					<li class="icon1"><a href="#"></a></li>
+					<li class="icon2"><a href="#"></a></li>
+					<li class="icon3"><a href="#"></a></li>
+				</ul>
+				
+				<div class="userpic">
+					<img src="img/userpic.png" alt="" />
+					<p>Boghdan Markelov</p>
+					<a class="profile" href="#">Профиль</a>
+				</div>
+			   
+				<nav>
+					<ul>
+						<li class="menu1"><a href="#">Главная</a></li>
+						<li class="menu2"><a href="#">Профили</a></li>
+						<li class="menu3"><a href="#">Задания</a></li>
+						<li class="menu4"><a href="#">Корреспонденция</a></li>
+						<li class="menu5"><a href="#">Сервисы</a></li>
+						<li class="menu6"><a href="#">Финансы</a></li>
+						<li class="menu7"><a href="#">Отчеты</a></li>
+						<li class="menu8"><a href="#">Помощь</a></li>
+					</ul>
+				</nav>
+			</aside>
+			
+			<div class="right_content_outer">
+				<div class="right_content">
+				
+					<header>
+						
+						<div class="topblock">
+							<a class="logo" href=""><img src="img/vd.png" alt="" /></a>
+							
+							<form class="search-header" action="#">
+								<input type="text" name="poisk" placeholder="Глобальный поиск..." >
+								<input class="searchbut" type="submit" value="">
+							</form>
+							
+							
+							
+							
+							
+							<div class="right_block">
+							
+							
+								<div class="inner_chat1">
+									<div class="inner_user_head">
+										<div class="users">
+											<div class="users_item_mini">
+												<a href="">
+													<span class="avatar">
+														<span><img src="img/avatar1.png" alt="" /></span>
+													</span>
+													<span class="name">
+														Thomas Brown  
+													</span>
+												</a>
+											</div>
+											<div class="users_item_mini">
+												<a href="">
+													<span class="avatar">
+														<span></span>
+													</span>
+													<span class="name">
+														Thomas Brown  
+													</span>
+												</a>
+											</div>
+											<div class="users_item_mini">
+												<a href="">
+													<span class="avatar">
+														<span><img src="img/avatar1.png" alt="" /></span>
+													</span>
+													<span class="name">
+														Thomas Brown  
+													</span>
+												</a>
+											</div>
+											<div class="users_item_mini">
+												<a href="">
+													<span class="avatar">
+														<span></span>
+													</span>
+													<span class="name">
+														Thomas Brown  
+													</span>
+												</a>
+											</div>
+											<div class="users_item_mini">
+												<a href="">
+													<span class="avatar">
+														<span><img src="img/avatar1.png" alt="" /></span>
+													</span>
+													<span class="name">
+														Thomas Brown  
+													</span>
+												</a>
+											</div>
+											<div class="users_item_mini">
+												<a href="">
+													<span class="avatar">
+														<span></span>
+													</span>
+													<span class="name">
+														Thomas Brown  
+													</span>
+												</a>
+											</div>
+											<div class="users_item_mini">
+												<a href="">
+													<span class="avatar">
+														<span><img src="img/avatar1.png" alt="" /></span>
+													</span>
+													<span class="name">
+														Thomas Brown  
+													</span>
+												</a>
+											</div>
+										</div>
+										<span class="opener"></span>
+										<span  class="uved">Чат</span>
+										<a href="#" class="chat_userpic"><img class="" src="img/userpic.png" alt="" /></a>
+									</div>
+									<div class="bg_send_header">
+									    <div class="hover_but_send">
+										</div>
+										<div class="pos">Написать сообщение...</div>
+									</div>
+									
+									
+									<div class="item item1">
+									    <a href="#" class="hover"></a>
+										<div class="pict">
+											<span class="number">4</span>
+											<span class="team_avatar">
+												<span></span>
+												<img src="img/team_avatar1.png" alt="" />
+											</span>
+											<span class="team_avatar">
+												<span></span>
+												<img src="img/team_avatar2.png" alt="" />
+											</span>
+											<span class="team_avatar">
+												<img src="img/team_avatar2.png" alt="" />
+											</span>
+											<span class="team_avatar">
+												<span></span>
+												<img src="img/team_avatar1.png" alt="" />
+											</span>
+										</div>
+										<div class="descr">
+											<div class="inner_descr">
+										 
+												<p class="who">MaximModus <span class="tilltoop"></span> <span class="time">11:20</span> </p>
+												<p class="hello"><a href="#">Hello, my friend! I wo...</a></p>
+												
+											</div>
+										</div>
+									</div>
+									<div class="item item2">
+									    <a href="#" class="hover"></a>
+										<div class="pict three">
+											<span class="number">3</span>
+											<span class="team_avatar">
+												<span></span>
+												<img src="img/team_avatar1.png" alt="" />
+											</span>
+											<span class="team_avatar">
+												<span></span>
+												<img src="img/team_avatar2.png" alt="" />
+											</span>
+											<span class="team_avatar">
+											    <span></span>
+												<img src="img/team_avatar2.png" alt="" />
+											</span>
+										</div>
+										<div class="descr">
+											<div class="inner_descr">
+										 
+												<p class="who">MaximModus <span class="tilltoop"></span> <span class="time">11:20</span> </p>
+												<p class="hello"><a href="#">Hello, my friend! I wo...</a></p>
+												
+											</div>
+										</div>
+									</div>
+									<div class="item item3">
+									    <a href="#" class="hover"></a>
+										<div class="pict">
+											<span class="number"></span>
+											<span class="one_avatar">
+												<span></span>
+												<img src="img/one_avatar.png" alt="" />
+											</span>
+										</div>
+										<div class="descr">
+											<div class="inner_descr">
+										 
+												<p class="who">MaximModus <span class="tilltoop"></span> <span class="time">11:20</span> </p>
+												<p class="hello"><a href="#">Hello, my friend! I wo...</a></p>
+												
+											</div>
+										</div>
+									</div>
+									<div class="item item1">
+									    <a href="#" class="hover"></a>
+										<div class="pict two">
+											<span class="number">2</span>
+											<span class="team_avatar">
+												<span></span>
+												<img src="img/team_avatar1.png" alt="" />
+											</span>
+											<span class="team_avatar">
+												<span></span>
+												<img src="img/team_avatar2.png" alt="" />
+											</span>
+										</div>
+										<div class="descr">
+											<div class="inner_descr">
+										 
+												<p class="who">MaximModus <span class="tilltoop"></span> <span class="time">11:20</span> </p>
+												<p class="hello"><a href="#">Hello, my friend! I wo...</a></p>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							
+							    <div class="inner_chat2">
+									<div class="inner_user_head_chat">
+										<span class="opener"></span>
+										<div class="users_item_mini">
+											<a href="">
+												<span class="name">
+													Thomas Brown  
+												</span>
+												<span class="avatar">
+													<span><!--<img src="img/avatar1.png" alt="" />--></span>
+												</span>
+											</a>
+										</div>
+									</div>
+									
+									<div class="chat">
+										<div class="chat_inner">
+											<div class="interlocutor">
+												<div class="question">
+													<p class="name">
+														Thomas Brown  
+													</p>
+													<div class="text">
+														Hey. You completed the task ?
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+												</div>
+											</div>
+											
+											
+											<div class="interlocutor">
+												<div class="answer">
+												
+													<div class="read">
+												
+														<div class="text">
+															<div class="inner_text">
+																Hello, Thomas! 
+															</div>
+														</div>
+														
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+													
+												</div>
+											</div>
+											
+											<div class="interlocutor">
+												<div class="question">
+													<p class="name">
+														Thomas Brown  
+													</p>
+													<div class="text">
+														Hey. You completed the task ? It must be completed before the end of today fish fish fish
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+												</div>
+											</div>
+											
+											<div class="interlocutor">
+												<div class="answer">
+												
+													<div class="read">
+												        
+														<div class="text">
+															<div class="inner_text">
+																Hello, Thomas! I wrote more text
+															</div>
+														</div>
+														
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+													
+												</div>
+											</div>
+											
+											<div class="interlocutor">
+												<div class="answer">
+												
+													<div class="read">
+												
+														<div class="text">
+															<div class="inner_text">
+																<div class="inner_attach">
+																	<div class="attach">
+																		Archive.zip 
+																	</div>
+																	<div class="attach">
+																		flat-style.psd
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+													
+												</div>
+											</div>
+											
+											
+											<div class="interlocutor">
+												<div class="question">
+													<p class="name">
+														Thomas Brown  
+													</p>
+													<div class="text">
+                                                        It is simply the text of fish
+														<div class="attach_big_container">
+															<div class="attach_big">
+																<img src="img/img_chat.png" alt="" />
+																<span class="filename">imagename.png</span>
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+												</div>
+											</div>
+											
+											<div class="interlocutor">
+												<div class="question">
+													<p class="name">
+														Thomas Brown  
+													</p>
+													<div class="text">
+                                                        It is simply the text of fish
+														<div class="attach_big_container">
+															<div class="attach_big much_more">
+																<img src="img/img_chat.png" alt="" />
+																<span class="filename">imagename.png</span>
+															</div>
+															<div class="attach_big much_more">
+																<img src="img/img_chat.png" alt="" />
+																<span class="filename">imagename.png</span>
+															</div>
+														</div>
+														<div class="inner_attach">
+															<div class="attach">
+																Archive.zip 
+															</div>
+															<div class="attach">
+																flat-style.psd
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+												</div>
+											</div>
+											<div class="interlocutor">
+												<div class="answer">
+												
+													<div class="read">
+												
+														<div class="text">
+															<div class="inner_text">
+																<div class="inner_attach">
+																	<div class="attach">
+																		Archive.zip 
+																	</div>
+																	<div class="attach">
+																		flat-style.psd
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+													</div>
+													<div class="time">
+														11 minutes ago
+													</div>
+													
+												</div>
+											</div>
+											
+											
+										</div>
+									</div>
+									
+									
+									
+									<div class="send">
+				                        
+										<form class="message_send" action="#"  method="post"  enctype="multipart/form-data">
+										
+										    <div class="message_send_panel">
+											    <!--<a class="drop_attach" id="attach1" href="#"><span class="img"> </span></a><a class="drop_attach" id="attach2" href="#"><span class="file"> </span></a> -->
+												
+												<textarea placeholder="Your message..."></textarea>
+												<div class="block_attach">
+												
+												    <input type="submit" value="" />
+													
+													<div class="dropfiler" style="">
+													
+													<input type="file" name="file" id="file_input_hided" size="1" style="">
+													</div>
+													
+													
+													
+												</div>
+											</div>
+											
+											
+											
+											<!--<div class="drop box__input">
+												<input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+												<span class="descr">Перенесите сюда фотографии,<br /> чтоб прикрепить их к сообщению</span>
+												<button class="box__button" type="submit">Upload</button>
+											  </div>
+											  <div class="box__uploading drop_progress">
+											  
+											    <div class="bar">
+													<span class="descr"><span class="left">загрузка</span> <span class="right"><span class="num">2/4</span> изображений</span></span>
+													<div class="progressbar"><div class="progressbar_process" style="width:25%"></div></div>
+												</div>
+											  
+											  </div>
+											  <div class="box__success">Done!</div>
+											  <div class="box__error">Error! <span></span>.</div>-->
+											
+										</form>
+										
+										
+							
+										
+										
+									</div>
+									<div class="downloaded_files">
+									
+									    <div class="load_block">
+											<div class="bar">
+													<div class="progressbar"><div class="progressbar_process" style="width:25%"></div></div>     
+											</div>
+											<span class="filename">ololoo.jpg<a href="#"></a></span>
+									    </div>
+										
+										
+										<div class="load_block">
+											<div class="bar">
+													<div class="progressbar"><div class="progressbar_process" style="width:25%"></div></div>     
+											</div>
+											<span class="filename">ololoo.jpg<a href="#"></a></span>
+											<span class="file getter"><a class="delete"></a><span>5</span> </span>
+									    </div>
+										
+									</div>
+								</div>
+							
+							
+							
+							
+							
+								<div class="inner_user">
+									<div class="inner_user_head">
+										<span class="opener"></span>
+										<span  class="uved">Уведомления</span>
+									</div>
+									<div class="item item1">
+										<div class="pict"><div class="innerpict"></div><p class="hover_task">Открыть задачу</p></div>
+										<div class="descr">
+											<p class="nonstandart"><a href="#">Добавлен новый член команды</a></p>
+											<p><a href="#">"Ростислав Стародубский"</a></p>
+											
+											<p class="time">10 минут назад</p>
+										</div>
+									</div>
+									<div class="item item2">
+										<div class="pict"><div class="innerpict"></div><p class="hover_task">Открыть задачу</p></div>
+										<div class="descr">
+											<p class="nonstandart"><a href="#">Новое сообщение от  администрации</a></p>
+											
+											<p class="time">10 минут назад</p>
+										</div>
+									</div>
+									<div class="item item3">
+										<div class="pict"><div class="innerpict"></div><p class="hover_task">Открыть задачу</p></div>
+										<div class="descr">
+											<p><a href="#">MaximModus</a></p>
+											<p class="nonstandart"><a href="#">Добавлена задача</a></p>
+											
+											<p class="time">10 минут назад</p>
+										</div>
+									</div>
+								</div>
+								
+								<ul class="userlist">
+									<li class="item3">
+										<a href="#"><span class="">3</span></a>
+									</li>
+									<li class="item2">
+										<a href="#"><span class="">2</span></a>
+									</li>
+									<li class="item1">
+										<a href="#"><span class="act">1</span></a>
+									</li>
+									
+									
+								</ul>
+								
+								
+							</div>
+							
+						</div>
+						
+						
+						<div class="left_block">	
+							<span class="header_avatar"><img src="img/header_avatar.png" alt="" /><span>3</span></span>
+							<h2>MaximModus</h2>
+							<p>Руководитель</p>
+						</div>
+						<div class="right_block">
+							<div class="tasks">
+								<span class="number">5</span>
+								<span class="text">новых задач</span>
+							</div>
+						</div>
+					</header>
+					
+					<main>
+						<section class="zapros">
+						
+							<h2 class="sector">Запросы</h2>
+							<div class="searchline">
+								<div class="searchline_inner">
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar1.png" alt="" />
+										
+										<div>
+											<h4>Александр Фролов</h4>
+											<span>ID 12345</span>
+										</div>
+										
+									</a>
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar2.png" alt="" />
+										<div>
+											<h4>Анастасия Масловская </h4>
+											<span>ID 12345</span>
+										</div>
+									</a>
+									<a href="#" class="firstuser lined">
+										запрос на контактную информацию
+									</a>
+									<div class="firstuser eye">
+									</div>
+								</div>
+							</div>
+							<div class="searchline">
+								<div class="searchline_inner">
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar1.png" alt="" />
+										
+										<div>
+											<h4>Александр Фролов</h4>
+											<span>ID 12345</span>
+										</div>
+										
+									</a>
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar2.png" alt="" />
+										<div>
+											<h4>Анастасия Масловская </h4>
+											<span>ID 12345</span>
+										</div>
+									</a>
+									<a href="#" class="firstuser lined">
+										запрос на контактную информацию
+									</a>
+									<div class="firstuser eye">
+									</div>
+								</div>
+							</div>
+							<div class="searchline">
+								<div class="searchline_inner">
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar1.png" alt="" />
+										
+										<div>
+											<h4>Александр Фролов</h4>
+											<span>ID 12345</span>
+										</div>
+										
+									</a>
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar2.png" alt="" />
+										<div>
+											<h4>Анастасия Масловская </h4>
+											<span>ID 12345</span>
+										</div>
+									</a>
+									<a href="#" class="firstuser lined">
+										запрос на контактную информацию
+									</a>
+									<div class="firstuser eye">
+									</div>
+								</div>
+							</div>
+							<div class="searchline">
+								<div class="searchline_inner">
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar1.png" alt="" />
+										
+										<div>
+											<h4>Александр Фролов</h4>
+											<span>ID 12345</span>
+										</div>
+										
+									</a>
+									<a href="#" class="firstuser nonlined">
+										<img src="img/avatar2.png" alt="" />
+										<div>
+											<h4>Анастасия Масловская </h4>
+											<span>ID 12345</span>
+										</div>
+									</a>
+									<a href="#" class="firstuser lined">
+										запрос на контактную информацию
+									</a>
+									<div class="firstuser eye">
+									</div>
+								</div>
+							</div>
+							
+					   
+
+						</section>
+						
+						
+						<section class="statistic">
+							<div class="header">
+								<h2 class="statistic_sector">Статистика</h2>
+								<ul class="list_tabs">
+									<li class="active today">
+										<a href="#tab-1">сегодня</a>
+									</li>
+									<li class="period">
+										<a href="#tab-2">за период</a>
+									</li>
+								</ul>
+								<div id="datepicker">
+									<div class="floater">
+										<input type="text" id="from" placeholder="ОТ" name="from">
+									</div>
+									<div class="floater">
+										<input type="text" id="to" placeholder="ДО" name="to">
+									</div>
+								</div>
+							</div>
+							<div class="rounds">
+							
+							
+								<div class="round">
+									<div class="round_inner">
+										<a class="hover" href="#"><span>Смотреть</span></a>
+										<h3>Письма</h3>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="200" class="blueCircle" readonly="readonly" >
+											<p>прочитанных</p>
+										</div>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="300" class="blueCircle" readonly="readonly" >
+											<p>непрочитанных</p>
+										</div>
+										<div class="krug">
+											<input type="text" value="250" data-min="0" data-max="400" class="blueCircle" readonly="readonly" >
+											<p>неотвеченных</p>
+										</div>
+									</div>
+								</div>
+								
+								<div class="round">
+									<div class="round_inner">
+										<a class="hover" href="#"><span>Смотреть</span></a>
+										<h3>Чаты</h3>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="200" class="blueCircle" readonly="readonly" >
+											<p>прочитанных</p>
+										</div>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="200" class="blueCircle" readonly="readonly" >
+											<p>непрочитанных</p>
+										</div>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="200" class="blueCircle" readonly="readonly" >
+											<p>неотвеченных</p>
+										</div>
+									</div>
+								</div>
+								<div class="round">
+									<div class="round_inner">
+										<a class="hover" href="#"><span>Смотреть</span></a>
+										<h3>Подарки</h3>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="200" class="blueCircle" readonly="readonly" >
+											<p>прочитанных</p>
+										</div>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="200" class="blueCircle" readonly="readonly" >
+											<p>непрочитанных</p>
+										</div>
+										<div class="krug">
+											<input type="text" value="150" data-min="0" data-max="200" class="blueCircle" readonly="readonly" >
+											<p>неотвеченных</p>
+										</div>
+									</div>
+								</div>
+							
+							
+							
+							</div>
+							
+						</section>		
+						
+						
+						<section class="graphic">	
+							<div class="header">
+								<h2 class="graphic_sector">График прибыли</h2>
+								<ul class="list_tabs">
+									<li class="active" id="days_grapf">
+										<a href="#tab-1">по дням</a>
+									</li>
+									<li id="month_grapf">
+										<a href="#tab-2">по месяцам</a>
+									</li>
+								</ul>
+							</div>
+							
+								<div id="container2" ></div>
+							
+								<div id="container" ></div>
+							
+						</section>	
+						
+					</main>
+				
+				</div>
+			</div>
+		
+	
+
+    </div>
+  </body>
+</html>

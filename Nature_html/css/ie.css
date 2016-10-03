@@ -1,0 +1,57 @@
+.main-content {
+    text-align:center !important;
+}
+.content-data{
+width:730px !important;
+text-align:left !important;
+margin: 0 auto;
+}
+.welcome-block{
+ text-align:center !important;
+}
+.block-inner{
+width:730px !important;
+text-align:left !important;
+margin: 0 auto;
+position:relative;
+left:100px;
+}
+
+.main-content {
+    text-align:center !important;
+}
+.content-data{
+width:730px !important;
+text-align:left !important;
+margin: 0 auto;
+}
+.navbar .container{
+text-align:center !important;
+}
+.menu{
+width:1000px !important;
+text-align:left !important;
+margin: 0 auto;
+}
+.navbar-social{
+float:right
+}
+.navbar-nav{
+float:left;
+width:800px;
+overflow:visible
+}
+.navbar-nav li{
+margin:0 16px !important;
+}
+.navbar-enter{
+top:0;
+left:900px
+}
+
+
+
+
+
+
+

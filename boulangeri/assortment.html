@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	  	<meta charset='utf-8'>
+        <title>TEST</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+		
+		<script>
+		
+		$(document).ready( function(){
+		   
+		   $('.lang a').hover(function(){
+			$('.lang').toggleClass('collapsed2')
+		   });	
+
+		   $('.lang a').click(function(){
+			 $('.lang').prepend($('.lang a:last'));
+		   });	
+		   
+		   $('.specelement').hover(function(){
+		       var answerArray = new Array("bon appétit", "le pain appétissant", "café aromatisé ");
+				$('.specelement .bubble').html('<span class="random-text">' + answerArray[Math.floor(Math.random() * answerArray.length)] + '</span>');
+			}); 
+		   
+		});
+		
+        </script>
+
+		
+		
+
+
+    </head>
+    <body id="assortment">
+	    
+		    <a href="#" class="fb"><img src="img/fb.png" alt="" /></a>
+			<span class="hotline"><img src="img/hotline.png" alt="" /></span>
+			<div class="centered">
+			<header>
+				<span class="logo"><a href="http://webstroika.org.ua/sites/boulangeri/index.html"><img src="img/logo.png" alt="" /></a></span>
+				<div class="lang">
+					<a href="#">Ua</a><a href="#">En</a>
+				</div>
+				<nav class="topcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html" id="active">Продукція</a></li> 
+					</ul>
+				</nav>
+			</header>
+			</div>
+			<div class="centered">
+			    <div class="submenu block">
+					<p>Наша продукція виготовляється за кращими рецептами та з оригінальних інгредієнтів. Хліб у майстернях завжди свіжий, оскільки ми випікаємо його на місці кожні 2–3 години. На полицях «Буланжері» ви знайдете:</p>
+					<ul>
+						 <li><a href="#anchor1">Класичні сорти хліба</a></li> 
+						 <li><a href="#anchor2">Багети</a></li> 
+						 <li><a href="#anchor3">Здобу</a></li> 
+						 <li><a href="#anchor4">Круасани</a></li> 
+						 <li><a href="#anchor5">Пироги і тарти</a></li> 
+						 <li><a href="#anchor6">Сендвічі, салати, кіши</a></li> 
+						 <li><a href="#anchor7">Напої</a></li> 
+					</ul>
+			    </div>
+			</div>
+			 
+				<div class="grid">
+				    <span class="specelement figure-right car-right hidden-xs hidden-md hidden-sm"><img src="img/car.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block right" id="sort-bread">
+							<img src="img/4.png" alt="" >
+							<a class="anchor" name="anchor1"></a>
+							<div>
+								<h2>Класичні сорти хліба</h2>
+	<p>Наші класичні сорти хліба виготовлені з житнього або пшеничного борошна чи з їх суміші з додаванням закваски або дріжджів, корисного насіння, висівок, овочевого пюре. Щоб обрати улюблений сорт, варто спробувати увесь наш асортимент. Фаворити наших відвідувачів: хліб «Грехемський», чіабата світла, чіабата темна, чіабата з оливками, хліб тостерний, хліб «Бюрлі», хліб «Датський», хліб «Швейцарський», паве «Прованс», паве з висівками та зручні порційні міні-булочки.</p>
+<p><strong>Чіабата  світла</strong> – класичний італійський низькокалорійний хліб, виготовлений методом тривалого бродіння тіста з низьким вмістом дріжджів. Всередині чіабата м’яка, з крупними порами, ззовні – вкрита хрумкою скоринкою.</p>
+<p><strong>Паве «Прованс»</strong> – хліб, виготовлений на основі натуральної закваски з низьким вмістом дріжджів. Для тіста ми використовуємо свіжоприготовлене гарбузове пюре. </p>
+							</div>
+							
+						</article>
+					</div>	
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-left zeppelin-right hidden-xs hidden-md hidden-sm"><img src="img/zeppelin.png" alt="" /><span class="bubble bubble-bottom-right bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block left" id="baget">
+							<img src="img/5.png" alt="">
+							<a class="anchor" name="anchor2"></a>
+							<div>
+								<h2>Багети</h2>
+								<p>Це не просто довгий хліб, це – справжня візитна картка Франції. Знавці кажуть, що наші багети смакують дуже по-французьки. Особливо відзначають багети «Монж», «Артісан», «Фітнес», мультизлаковий, гречаний і багет із часниковим маслом.</p>
+<p><strong>Багет «Фітнес»</strong> – це смак і користь для тих, хто піклується про свою красу і здоров’я. Хліб на натуральній заквасці містить моркву, насіння льону, кунжуту та вівсяні пластівці.
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-right boy-right hidden-xs hidden-md hidden-sm"><img src="img/boy2.png" alt="" /><span class="bubble bubble-top-right bon-journe"></span></span>
+				    <div class="centered">				
+						<article class="block right" id="zdoba">
+							<img src="img/6.png" alt="" >
+							<a class="anchor" name="anchor3"></a>
+							<div>
+								<h2>Здоба</h2>
+								<p>Здоба в домі своїм ароматом та солодким смаком завжди нагадує про вихідні або свята, щедрі і радісні. Тому серед наших здобних виробів знайдеться чимало традиційних святкових пригощань: кекс, буше з маком, різдвяний пиріг «штоллен», великодній кекс «панетон». 
+                                </p>
+								<p><strong>Штоллен</strong> – це класичний різдвяний європейський хліб з родзинками, цукатами, які попередньо вимочені у ромі, та мигдальними пластівцями. Штоллен, оздоблений цукровою пудрою, прикрасить святковий стіл та будь-яке чаювання.
+							    </p>
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+			    <div class="grid">
+				    <span class="specelement figure-left girl-left hidden-xs hidden-md hidden-sm"><img src="img/girl2.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block left">
+							<img src="img/7.png" alt="">
+							<a class="anchor" name="anchor4"></a>
+							<div>
+							    <h2>None text</h2>
+								<p>Лорем ипсум долор сит амет</p>
+						    </div>
+							
+						</article>
+					</div>
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-right bike-right hidden-xs hidden-md hidden-sm"><img src="img/bike2.png" alt=""><span class="bubble bubble-top-right bon-journe"><span class="random-text">bonne journée</span></span></span>
+				    <div class="centered">
+						<article class="block right" id="pirog">
+							<img src="img/8.png" alt="" >
+							<a class="anchor" name="anchor5"></a>
+							<div> 
+							    <h2>Пироги і тарти</h2>
+								<p>У нас ви знайдете смачні пироги – відкриті (тарти), європейські кейки, тістечка. Ось наші солодкі зірки: тарти з яблуками, чорницею, полуницею, малиною, тістечка, міні-тарти, чізкейки, цукерки з бельгійського шоколаду.</p>
+<p><strong>Тарт з ягодами (вишнями)</strong> – традиційний французький пиріг із неймовірно тонким шаром пісочного тіста та молочно-ванільною заливкою з додаванням коньяку, яка чудово доповнює смак соковитої вишні.</p>
+<p><strong>Чізкейк</strong> – це ніжний сир, що просто тане в роті. Сирне суфле оберігає солодка хрустка скоринка. Цей десерт – корисний та смачний. Його люблять і дорослі, і діти.</p>
+							</div>
+							
+						</article>
+					</div>	
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-left zeppelin-right hidden-xs hidden-md hidden-sm"><img src="img/zeppelin.png" alt="" /><span class="bubble bubble-bottom-right bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block left">
+							<img src="img/9.png" alt="">
+							<a class="anchor" name="anchor6"></a>
+							<div>
+								<h2>Сендвічі, салати, кіши</h2>
+		<p>Якщо хочете не просто перекусити, а втамувати голод, зверніть увагу на наші обідні пропозиції, класичні європейські салати, гарячі та холодні сендвічі, апетитні крепи (млинці з начинкою) та кіши (пироги з несолодкою начинкою).</p>
+	<p><strong>Кіш з куркою</strong> – це класичний французький пиріг, що має несолодку пісочну основу, заповнену соковитими томатами, смаженою куркою і ніжними вершками. Один шматок замінює легкий обід! </p>
+	<p><strong>Гарячий неаполітанський сендвіч</strong> – це більше, ніж бутерброд: класичний французький багет на заквасці з низьким вмістом дріжджів і начинка з апетитної шинки, соковитих томатів, цибулі та ніжних вершків. Завершує смакову композицію пікантний твердий сир. </p>
+							   
+							
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-right plombir-right hidden-xs hidden-md hidden-sm"><img src="img/plombir.png" alt="" /><span class="bubble bubble-bottom-right bon-journe"></span></span>
+				    <div class="centered">				
+						<article class="block right">
+							<img src="img/10.png" alt="" >
+							<a class="anchor" name="anchor7"></a>
+							<div>
+								<h2>Холодні і гарячі напої</h2>
+								Для кожної пори року у нас знайдеться чудовий напій. Найчастіше гості обирають каву, какао, чаї за нашими власними рецептами, молочні коктейлі, фреші, соки, французькі вина.
+							
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+			    
+
+		<footer>
+		    <div class="centered">
+				<span class="logo"><a href="#"><img src="img/logo2.png" alt="" /></a></span>
+				<nav class="bottomcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html" id="active">Продукція</a></li> 
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		
+	    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+	    <script type="text/javascript" src="js/bootstrap.js"></script>	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

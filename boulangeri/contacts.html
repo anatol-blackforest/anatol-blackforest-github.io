@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	  	<meta charset='utf-8'>
+        <title>TEST</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+		
+		<script>
+		
+		$(document).ready( function(){
+		   
+		   $('.lang a').hover(function(){
+			$('.lang').toggleClass('collapsed2')
+		   });	
+
+		   $('.lang a').click(function(){
+			 $('.lang').prepend($('.lang a:last'));
+		   });	
+		   
+		   $('.specelement').hover(function(){
+		       var answerArray = new Array("bonne journée", "bienvenue", "savourez");
+				$('.specelement .bubble').html('<span class="random-text">' + answerArray[Math.floor(Math.random() * answerArray.length)] + '</span>');
+				//alert('jgrel');
+			}); 
+			
+			
+			 $('.hov').hover(function(){
+		       if($(this).attr('id')=='map1' && !($('#map_img_1').hasClass('act'))){
+			     $('#map_img_1').addClass('act');
+				 $('#map_img_2').removeClass('act');
+				 $('#map_img_3').removeClass('act');
+			   }
+			   if($(this).attr('id')=='map2' && !($('#map_img_2').hasClass('act'))){
+			     $('#map_img_1').removeClass('act');
+				 $('#map_img_2').addClass('act');
+				 $('#map_img_3').removeClass('act');
+			   }
+			   if($(this).attr('id')=='map3' && !($('#map_img_3').hasClass('act'))){
+			     $('#map_img_1').removeClass('act');
+				 $('#map_img_2').removeClass('act');
+				 $('#map_img_3').addClass('act');
+			   }
+			}); 
+			
+		   
+		});
+		
+        </script>
+		
+    </head>
+    <body>
+	    
+		    <a href="#" class="fb"><img src="img/fb.png" alt="" /></a>
+			<span class="hotline"><img src="img/hotline.png" alt="" /></span>
+			<div class="centered">
+			<header>
+				<span class="logo"><a href="http://webstroika.org.ua/sites/boulangeri/index.html"><img src="img/logo.png" alt="" /></a></span>
+				<div class="lang">
+					<a href="#">Ua</a><a href="#">En</a>
+				</div>
+				<nav class="topcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html" id="active">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+				</nav>
+			</header>
+			</div>
+			 
+				<div class="grid">
+				    <span class="specelement figure-left bike-left hidden-xs hidden-md hidden-sm"><img src="img/bike.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block right map">
+							<img src="img/map1.png" class="act" id="map_img_1" alt="">
+							<img src="img/map2.png" id="map_img_2" alt="">
+							<img src="img/map3.png" id="map_img_3" alt="">
+							<div>
+								<h2>Запрошуємо вас у гості!</h2>
+								<p>м. Київ:</p><p>
+								<p class="hov" id="map1">вул. Ярославів Вал, 21/20, <br />тел.: +380 (44) 234 04 47, моб.: +3 80 (67) 214 33 44</p>
+								<p class="hov" id="map2">вул. Лютеранська, 7/10а, <br />тел.: +380 (44) 279 33 24, моб.: +380 (67) 231 34 44</p>
+								<p class="hov" id="map3">вул. Шота Руставелі, 31, <br />тел.: +380 (44) 289 78 03, моб.: +380 (67) 549 71 41</p>
+								<p>За телефонами ви можете зробити замовлення завчасно та забрати його щойно спеченим. </p>
+								<p>До зустрічі в «Буланжері»!</p>
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+				
+				<div class="centered">
+					<form id="cf" action="#" method="post">
+				<h2>Зверніться до нас за допомогою форми, якщо маєте питання!</h2>
+
+
+						<div class="conts">
+						    <div class="leftform">
+							    <label for="">Ім’я*</label>
+								<input type="text" id="name" name="name" class="name" size="30" onkeyup="check();" value="">
+								<label for="">Телефон</label>
+								<input type="text" id="phone" name="phone" class="phone" size="30" onkeyup="check();" value="">
+							</div>
+							<div class="rightform">
+							    <label for="">E-mail*</label>
+								<input type="text" id="email" name="email" class="mail" size="30" onkeyup="check();" value="">
+								<label for="">Дата відвідування хлібної майстерні</label>
+								<input type="text" id="data" name="data" class="data" size="30" onkeyup="check();" value="">
+							</div>
+						</div>
+						Ваше звернення*: <br>
+						<textarea name="message" rows="10" cols="20"></textarea>
+						<span>* Поля, обов’язкові для заповнення.</span>
+						<input id="form-button" type="submit" value="Надіслати">
+						<button id="reset-button" type="reset">Редагувати</button>
+					
+					</form>
+				</div>
+			
+		
+		<footer>
+		    <div class="centered">
+				<span class="logo"><a href="#"><img src="img/logo2.png" alt="" /></a></span>
+				<nav class="bottomcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html" id="active">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		
+	    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+	    <script type="text/javascript" src="js/bootstrap.js"></script>	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

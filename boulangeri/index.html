@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	  	<meta charset='utf-8'>
+        <title>TEST</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+		
+		<script>
+		
+		$(document).ready( function(){
+		   
+		   $('.lang a').hover(function(){
+			$('.lang').toggleClass('collapsed2')
+		   });	
+
+		   $('.lang a').click(function(){
+			 $('.lang').prepend($('.lang a:last'));
+		   });	
+		   
+		   $('.specelement').hover(function(){
+		       var answerArray = new Array("bonne journée", "bienvenue", "savourez");
+				$('.specelement .bubble').html('<span class="random-text">' + answerArray[Math.floor(Math.random() * answerArray.length)] + '</span>');
+				//alert('jgrel');
+			}); 
+		   
+		});
+		
+        </script>
+
+		
+		
+
+
+    </head>
+    <body>
+	    
+		    <a href="#" class="fb"><img src="img/fb.png" alt="" /></a>
+			<span class="hotline"><img src="img/hotline.png" alt="" /></span>
+			<div class="centered">
+			<header>
+				<span class="logo"><a href="http://webstroika.org.ua/sites/boulangeri/index.html"><img src="img/logo.png" alt="" /></a></span>
+				<div class="lang">
+					<a href="#">Ua</a><a href="#">En</a>
+				</div>
+				<nav class="topcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+				</nav>
+			</header>
+			</div>
+			<div class="centered">
+			
+			    <div class="carousel slide" id="carousel">
+					<!-- Slide indicators -->
+					<ol class="carousel-indicators">
+						<li class="active" data-target="#carousel" data-slide-to="0"></li>
+						<li data-target="#carousel" data-slide-to="1"></li>
+						<li data-target="#carousel" data-slide-to="2"></li>
+					</ol>
+					
+					<!-- Slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img/slide1.png" alt="" >
+							<div class="carousel-caption">
+								<h3>every  morning’s  treasure</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/slide1.png" alt="" >
+							<div class="carousel-caption">
+								<h3>every morning’s  treasure</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/slide1.png" alt="" >
+							<div class="carousel-caption">
+								<h3>every morning’s treasure</h3>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Slide cursors -->
+					<!--<a class="carousel-control left" data-slide="prev" href="#carousel">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="carousel-control right" data-slide="next" href="#carousel">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>-->
+			    </div>
+			</div>
+			 
+				<div class="grid">
+				    <span class="specelement figure-left boy-left hidden-xs hidden-md hidden-sm"><img src="img/boy.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+					<span class="specelement figure-right girl-right hidden-xs hidden-md hidden-sm"><img src="img/girl.png" alt="" /><span class="bubble bubble-top-right bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block right">
+							<img src="img/1.png" alt="" >
+							
+							<div>
+								<h2>ВІТАЄМО!</h2>
+	Ми – хлібна майстерня «Буланжері Артісан» (французькою – Boulangerie Artisan). Саме подорож до романтичної Франції подарувала нам ідею створення «буланжері» в Україні. В затишних булочних-пекарнях «буланжері» з раннього ранку французи купують свіжий, ще теплий хліб, та снідають кавою з круасаном. Хліб французи люблять так само, як українці, тому ми вирішили привезти французький звичай додому. Тепер це наша улюблена справа, яка надихає у будні, вихідні та часом підіймає серед ночі. Хочемо поділитися з вами нашою пристрастю до духмяного хліба, запашної випічки. 
+	<br /><b>Завітайте до нас! </b><br />
+	Запевняємо, що ви полюбите хліб так, як любимо його ми. 
+							</div>
+							
+						</article>
+					</div>	
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-left bike-left hidden-xs hidden-md hidden-sm"><img src="img/bike.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+					<span class="specelement figure-right car-right hidden-xs hidden-md hidden-sm"><img src="img/car.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block left">
+							<img src="img/2.png" alt="">
+							
+							<div>
+								<h2>КОРИСТЬ І СМАК</h2>
+								<ul>
+	<li> Завжди свіжий хліб – не інакше/без компромісів, ми випікаємо його у пекарнях та робимо на замовлення.</li>
+	<li> Ми використовуємо борошно з підвищеною крупністю помелу, яке містить більше клітковини. </li>
+	<li> Для нашого хліба ми самостійно створили корисний купаж злаків, насіння та овочів.</li>
+	<li> У нас тільки натуральні пшеничні закваски власного приготування.</li>
+	<li> Ми використовуємо артезіанську воду з власної свердловини.</li>
+	<li> У «Буланжері» ми зібрали найкращі рецепти хліба та випічки з Франції і не тільки.</li>
+								</ul>
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-left plombir-left hidden-xs hidden-md hidden-sm"><img src="img/plombir.png" alt="" /><span class="bubble bubble-bottom-left bon-journe"></span></span>
+					<span class="specelement figure-right zeppelin-right hidden-xs hidden-md hidden-sm"><img src="img/zeppelin.png" alt="" /><span class="bubble bubble-bottom-right bon-journe"></span></span>
+				    <div class="centered">				
+						<article class="block right">
+							<img src="img/3.png" alt="" >
+							
+							<div>
+								<h2>МАЙСТЕРНІСТЬ</h2>
+								<ul>
+	<li> Ми запросили найкращих майстрів-пекарів та вивчили досвід популярних родинних пекарень, щоб запропонувати вам найсмачніше.</li>
+	<li> Нашу випічку та хліб ми формуємо вручну: виготовлення, насікання, глянсування.</li>
+	<li> Ми випікаємо хліб у справжніх подових печах – це сучасна версія бабусиної дров’яної.</li>
+	<li> Тісто має тривалий термін ферментації – від 6 до 24 годин.</li>
+	<li> Наші пекарі використовують технології багатоетапного закачування вершкового масла в тісто. Як це? Спробуйте наші масляні французькі круасани і зрозумієте.  </li>
+	                            </ul>
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+			    
+			
+			
+			<div class="welcome">
+			    Запрошуємо вас у гості!
+			</div>
+		
+		<footer>
+		    <div class="centered">
+				<span class="logo"><a href="#"><img src="img/logo2.png" alt="" /></a></span>
+				<nav class="bottomcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		
+	    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+	    <script type="text/javascript" src="js/bootstrap.js"></script>	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

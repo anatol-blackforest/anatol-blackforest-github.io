@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	  	<meta charset='utf-8'>
+        <title>TEST</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+		
+		<script>
+		
+		$(document).ready( function(){
+		   
+		   $('.lang a').hover(function(){
+			$('.lang').toggleClass('collapsed2')
+		   });	
+
+		   $('.lang a').click(function(){
+			 $('.lang').prepend($('.lang a:last'));
+		   });	
+		   
+		   $('.specelement').hover(function(){
+		       var answerArray = new Array("bonne journee", "bienvenue", "savourez");
+				$('.specelement .bubble').html('<span class="random-text">' + answerArray[Math.floor(Math.random() * answerArray.length)] + '</span>');
+				//alert('jgrel');
+			}); 
+		   
+		});
+		
+        </script>
+
+		
+		
+
+
+    </head>
+    <body>
+	    
+		    <a href="#" class="fb"><img src="img/fb.png" alt="" /></a>
+			<span class="hotline"><img src="img/hotline.png" alt="" /></span>
+			<div class="centered">
+			<header>
+				<span class="logo"><a href="http://webstroika.org.ua/sites/boulangeri/index.html"><img src="img/logo.png" alt="" /></a></span>
+				<div class="lang">
+					<a href="#">Ua</a><a href="#">En</a>
+				</div>
+				<nav class="topcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html" id="active">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+					
+				</nav>
+			</header>
+			</div>
+	
+			 
+
+			<div class="centered">
+				<article class="block">
+					<img src="img/dom.png" alt="" >
+					
+				</article>
+				<article class="block descr-boul">
+					<p class="first">Перша хлібна майстерня «Буланжері» відкрилася в Києві у 2007 році. Сьогодні працюють три заклади, які мають свій неповторний стиль, атмосферу та постійних прихильників.</p>
+<p>У «Буланжері» ми використовуємо найкращі рецепти хліба та випічки з Франції і не тільки. Адже існує безліч різновидів тіста і додатків, що перетворюють хліб майже на самостійну страву! За кожним уславленим рецептом – історія, яку важливо зберегти: 
+
+<ul>
+<li>наприклад, традиційний французький хліб мав круглу форму. </li>
+<li>За однією з версій, типовий паризький багет з’явився лише у 1920 році: він важить 200 грамів, має довжину 65 сантиметрів та 3 насічки на золотавій скоринці. Його рецепт навіть захистили «Декретом про хліб» у 1993 році, щоб якість справжнього символу Франції лишалася незмінною. </li>
+<li>Славетний круасан теж отримав свою легенду: у 1683 році турки хотіли захопити Відень, зробивши підкоп вночі. Саме пекарі, які працюють, коли все місто спить, врятували ситуацію. На знак подяки та на згадку пекарям дозволили робити випічку у формі півмісяця. Так круасан став символом перемоги над Османською імперією, а потім і «родзинкою» Франції.  </li>
+<li>Ще один хіт у нашому меню, наша гордість – хліб «Пен-о-Левен», сільський хліб на заквасці, який зазвичай випікали до свята молодого вина «Божоле Нуво».  </li>
+</ul>
+
+<p>Ось лише деякі позиції нашої хлібної карти. У нас ви знайдете випічку та хліб, рецепти яких ми привезли з європейських мандрів. Це ароматні та неймовірно апетитні: італійські чіабата та кекс «панетон», німецький різдвяний пиріг «штоллен» і булочка «шпандауер», грузинський хачапурі з бринзою та багато іншого. <p>
+<p>Сьогодні назву «Буланжері» наші гості вимовляють без помилок. До нас приходять за багетом на сніданок, просто заглядають на хвилинку, щоб дізнатися про нові смаколики і відчути аромат свіжого хліба, і обов’язково тут зустрічаються друзі за демократичною кавою з французьким круасаном. Ми любимо своїх гостей і точно знаємо, який хліб і випічку люблять вони. Все-таки добре, що з нашої подорожі до Франції ми захопили такий незвичний сувенір – ідею булочних «Буланжері». </p>
+
+				</article>
+			</div>	
+				
+			    
+
+		<footer>
+		    <div class="centered">
+				<span class="logo"><a href="#"><img src="img/logo2.png" alt="" /></a></span>
+				<nav class="bottomcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html" id="active">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		
+	    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+	    <script type="text/javascript" src="js/bootstrap.js"></script>	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

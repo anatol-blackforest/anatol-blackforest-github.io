@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	  	<meta charset='utf-8'>
+        <title>TEST</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+		
+		<script>
+		
+		$(document).ready( function(){
+		   
+		   $('.lang a').hover(function(){
+			$('.lang').toggleClass('collapsed2')
+		   });	
+
+		   $('.lang a').click(function(){
+			 $('.lang').prepend($('.lang a:last'));
+		   });	
+		   
+		   $('.specelement').hover(function(){
+		       var answerArray = new Array("bon appétit", "le pain appétissant", "café aromatisé");
+				$('.specelement .bubble').html('<span class="random-text">' + answerArray[Math.floor(Math.random() * answerArray.length)] + '</span>');
+				//alert('jgrel');
+			}); 
+		   
+		});
+		
+        </script>
+
+		
+		
+
+
+    </head>
+    <body>
+	    
+		    <a href="#" class="fb"><img src="img/fb.png" alt="" /></a>
+			<span class="hotline"><img src="img/hotline.png" alt="" /></span>
+			<div class="centered">
+			<header>
+				<span class="logo"><a href="http://webstroika.org.ua/sites/boulangeri/index.html"><img src="img/logo.png" alt="" /></a></span>
+				<div class="lang">
+					<a href="#">Ua</a><a href="#">En</a>
+				</div>
+				<nav class="topcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri//promotions.html" id="active">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+				</nav>
+			</header>
+			</div>
+			<div class="centered">
+			
+			    <div class="carousel slide" id="carousel">
+					<!-- Slide indicators -->
+					<ol class="carousel-indicators">
+						<li class="active" data-target="#carousel" data-slide-to="0"></li>
+						<li data-target="#carousel" data-slide-to="1"></li>
+						<li data-target="#carousel" data-slide-to="2"></li>
+					</ol>
+					
+					<!-- Slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img/slide1.png" alt="" >
+							<div class="carousel-caption">
+								<h3>every  morning’s  treasure</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/slide1.png" alt="" >
+							<div class="carousel-caption">
+								<h3>every morning’s  treasure</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/slide1.png" alt="" >
+							<div class="carousel-caption">
+								<h3>every morning’s treasure</h3>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Slide cursors -->
+					<!--<a class="carousel-control left" data-slide="prev" href="#carousel">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="carousel-control right" data-slide="next" href="#carousel">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>-->
+			    </div>
+			</div>
+			 
+				<div class="grid">
+				    <span class="specelement figure-left car-left hidden-xs hidden-md hidden-sm"><img src="img/car2.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+					<span class="specelement figure-right zeppelin-right hidden-xs hidden-md hidden-sm"><img src="img/zeppelin.png" alt="" /><span class="bubble bubble-bottom-right bon-journe"></span></span>
+				    <div class="centered">
+						<article class="block right">
+							<img src="img/11.png" alt="" >
+							<div>
+								<div class="upper render1">
+									<div class="cif"><img src="img/cif1.png" alt="" /></div>
+								    <span>Знижка на хліб та випічку*</span>
+								</div>
+<p class="descr-attr">* Знижка діє на постійній основі до 31.12.2015 року включно щодня з 08:00 до 11:30 на вечірню випічку та з 19:30 до 22:00 на ранкову випічку. Деталі запитуйте у продавця.  </p>
+							</div>
+							
+						</article>
+					</div>	
+				</div>	
+				<div class="grid">
+					<span class="specelement figure-left boy-left hidden-xs hidden-md hidden-sm"><img src="img/boy.png" alt="" /><span class="bubble bubble-top-left bon-journe"></span></span>
+					<span class="specelement figure-right bike-right hidden-xs hidden-md hidden-sm"><img src="img/bike2.png" alt=""><span class="bubble bubble-top-right bon-journe"><span class="random-text">bon appétit</span></span></span>
+				    <div class="centered">
+						<article class="block left">
+							<img src="img/12.png" alt="">
+							<div>
+								<div class="upper render2">
+									<div class="cif"><img src="img/cif2.png" alt="" /></div>
+									<span>Обідні пропозиції*</span>
+								</div>
+<p class="descr-attr">* З понеділка до п’ятниці включно, з 12:00 до 16:00 у мережі «Буланжері» діє одна обідня акційна пропозиція, що включає дві страви (першу та другу). Ціна пропозиції – 60,00 грн. Пропозиція діє до 31.12.2015 року. 
+Деталі акційних пропозицій запитуйте у продавця.</p>
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+				<div class="grid">
+				    <span class="specelement figure-left plombir-left hidden-xs hidden-md hidden-sm"><img src="img/plombir.png" alt="" /><span class="bubble bubble-bottom-left bon-journe"></span></span>
+					<span class="specelement figure-right girl-right hidden-xs hidden-md hidden-sm"><img src="img/girl.png" alt="" /><span class="bubble bubble-top-right bon-journe"></span></span>
+				    <div class="centered">				
+						<article class="block right">
+							<img src="img/13.png" alt="" >
+							<div>
+								<div class="upper render3">
+									<div class="cif"><img src="img/cif3.png" alt="" /></div>
+									<span>«Кава та круасан»*</span>
+								</div>
+<p class="descr-attr">* Пропозиція діє з 08:00 до 12:00 кожного дня тижня, включає американо або еспресо з молоком чи без та круасан «Панаві».</p>
+							</div>
+							
+						</article>
+					</div>
+				</div>	
+			    
+			
+			
+			<div class="welcome">
+			    Запрошуємо вас у гості!
+			</div>
+		
+		<footer>
+		    <div class="centered">
+				<span class="logo"><a href="#"><img src="img/logo2.png" alt="" /></a></span>
+				<nav class="bottomcont" >
+					<ul class="navig-left">
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/promotions.html" id="active">Акції</a></li> 
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/legend.html">Про Буланжері</a></li> 
+					</ul>
+					<ul class="navig-right">
+                         <li><a href="http://webstroika.org.ua/sites/boulangeri/contacts.html">Контакти</a></li> 					
+						 <li><a href="http://webstroika.org.ua/sites/boulangeri/assortment.html">Продукція</a></li> 
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		
+	    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>	
+	    <script type="text/javascript" src="js/bootstrap.js"></script>	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

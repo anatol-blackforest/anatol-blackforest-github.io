@@ -1,0 +1,425 @@
+/* 
+	Resets defualt browser settings
+	reset.css
+*/
+
+
+#slides {
+	position: relative;
+	width: 100%;
+	height: 470px;
+	//overflow: hidden;
+}
+#slides {
+	position: relative;
+	width: 100%;
+	height: 470px;
+	//overflow: hidden;
+}
+	
+	.slides {
+	height: 100%;
+		overflow: hidden; 
+		
+		
+		/* -webkit-backface-visibility: hidden;
+		-webkit-transform-style: preserve-3d; */
+
+		
+		-webkit-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+		   -moz-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+		    -ms-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+		     -o-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000);  
+		        transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+	}
+	
+
+        #slides .box{
+		position:relative;
+		width:100%;
+		}
+
+		#slides .box .descr{
+		position:absolute;
+		top:150px;
+		left:0;
+		width:100%;
+		color:#fff;
+		text-align:center;
+		z-index:5;
+		}
+		#slides.box .descr h2{
+		font-weight:normal;
+		font-size:32px;
+		text-transform:uppercase;
+		width:100%;
+		}
+		#slides .box .descr p{
+		font-weight:normal;
+		font-size:16px;
+		width:600px;
+		margin:10px auto;
+		}
+
+
+
+#slides .slidesContainer{
+height:500px
+}
+#slides .slidesNext,#slides .slidesPrevious {
+	position:absolute;
+	top:40%;
+	left:40px;
+	width:24px;
+	height:32px;
+	margin-top:-32px;
+	padding-top:32px;
+	display:block;
+	z-index:101;
+	overflow:hidden;
+	background: url(../img/left_strel.png) no-repeat top left;
+	
+	
+	position: absolute;
+    display: block;
+    padding: 20px;
+    color: #FFF;
+    text-indent: 10000000px;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    opacity: 0.5;
+    width: 20px;
+    height: 30px;
+    left: 150px;
+    z-index: 101;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#slides .slidesNext {
+	left:798px;
+	background: url(../img/right_strel.png) no-repeat top left;
+}
+
+
+
+
+
+
+
+
+
+
+
+#slides .box .descr p {
+    width: 100%;
+    font-weight: normal;
+    font-size: 16px;
+    width: 600px;
+    margin: 10px auto;
+	color:#fff
+}
+
+
+
+
+
+
+
+
+/*
+	Pagination
+*/
+
+.slidesPagination {
+		margin: 10px 0 0;
+        //float: right;
+		z-index:100;
+		position:absolute;
+		bottom:60px;
+		left:50%;
+		margin-left:-30px;
+}
+
+.slidesPagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.slidesPagination li a {
+   //text-indent:-1000000000000px;
+   font-size:1px;
+	border-radius: 4px;
+    width: 8px;
+    height: 8px;
+    float: left;
+    clear: none;
+    display: block;
+    margin: 0 5px;
+    background: #ccc;
+}
+
+
+
+
+
+
+.slidesPagination li a:hover { background: #fff; }
+
+.slidesPagination li.slidesCurrent a {
+	background: #fff; 
+}
+
+
+
+
+
+
+
+
+
+#slides2 .slidesPagination {
+		margin-left:-30px;
+			position: absolute;
+		bottom: 30px;
+		left:40px !important;
+		margin-left:0  !important
+}
+
+#slides2 .slidesPagination li , #slides3 .slidesPagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+#slides2 .slidesPagination li a ,#slides3 .slidesPagination li a {
+   //text-indent:-1000000000000px;
+   font-size:1px;
+	border-radius: 4px;
+    width: 8px;
+    height: 8px;
+    float: left;
+    clear: none;
+    display: block;
+    margin: 0 5px;
+	border-radius:5px;
+			width: 18px;
+			height: 18px;
+			float: left;
+			clear: none;
+			display: block;
+			margin: 0;
+			background: url(../img/nact_sl.png) no-repeat 50% 50%; 
+}
+
+
+
+
+
+
+#slides2 .slidesPagination li a:hover, #slides3 .slidesPagination li a:hover { background: url(../img/act_sl.png) no-repeat 50% 50%; 
+				width: 18px;
+		    	height: 18px;}
+
+#slides2 .slidesPagination li.slidesCurrent a , #slides3 .slidesPagination li.slidesCurrent a {
+	background: url(../img/act_sl.png) no-repeat 50% 50%; 
+				width: 18px;
+		    	height: 18px;
+}
+
+#slides3 .slide{
+width:100%;
+}
+#slides3 .slidesPagination{
+    margin-left: -50px;
+}
+
+#slides3 .slidesPagination li a {
+    border-radius: 5px;
+    width: 18px;
+    height: 18px;
+    float: left;
+    clear: none;
+    display: block;
+    margin: 0;
+    background: url(../img/nact_sl.png) no-repeat 50% 50%;
+}
+
+
+
+#slides3{
+position:relative;
+}
+ #slides3 .slidesPrevious {
+    position: absolute;
+    display: block;
+    margin-bottom: -20px;
+    padding: 20px;
+color: #FFF;
+    text-indent: 10000000px;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    background: #869791;
+    opacity: 0.5;
+    width: 20px;
+    height: 30px;
+    background: url(../img/left_strel_2.png) no-repeat top left;
+    bottom: 200px;
+    left: 150px;
+	z-index:101
+}
+
+#slides3 .slidesNext {
+    position: absolute;
+    display: block;
+    margin-bottom: -20px;
+    padding: 20px;
+    color: #FFF;
+    text-indent: 10000000px;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    background: #869791;
+    opacity: 0.5;
+    width: 20px;
+    height: 30px;
+    background: url(../img/right_strel_2.png) no-repeat top left !important;
+    bottom: 200px;
+    right: 150px;
+	z-index:101
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#slides5 .slide{
+width:100%;
+}
+#slides5 .slidesPagination{
+    margin-left: -50px;
+}
+
+#slides5 .slidesPagination li a {
+    border-radius: 5px;
+    width: 18px;
+    height: 18px;
+    float: left;
+    clear: none;
+    display: block;
+    margin: 0;
+    background: url(../img/nact_sl.png) no-repeat 50% 50%;
+}
+
+
+
+#slides5{
+position:relative;
+}
+ #slides5 .slidesPrevious {
+    position: absolute;
+    display: block;
+    margin-bottom: -20px;
+    padding: 20px;
+    color: #FFF;
+    text-indent: 10000000px;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    background: #869791;
+    opacity: 0.5;
+    width: 20px;
+    height: 30px;
+	
+	
+	
+	
+    background: url(../img/cur1.png) no-repeat top left;
+    top: 40px;
+    left: 0px;
+    z-index: 100;
+	
+	
+	
+}
+
+#slides5 .slidesNext {
+    position: absolute;
+    display: block;
+    margin-bottom: -20px;
+    padding: 20px;
+    color: #FFF;
+    text-indent: 10000000px;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    background: #869791;
+    opacity: 0.5;
+    width: 20px;
+    height: 30px;
+    background: url(../img/cur2.png) no-repeat top left;
+    top: 40px;
+    right: 0px;
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+

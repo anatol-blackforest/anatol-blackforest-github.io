@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.glide.min.js"></script>
+	<script type="text/javascript" src="js/jquery.spincrement.js"></script>
+	<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function($) {
+		$('.slider').glide();
+		$('.slider2').glide();
+        $('.slider3').glide();
+		$('.slider4').glide();
+		$('.slider_images').glide({autoplay: false});
+		
+		$(".user").hover(
+			function() {
+				$(this).children('div.modalb').show();
+			},
+			function(){
+				$(this).children('div.modalb').hide();
+			}
+		);
+        
+		$(function()
+		{
+		   $('.scroll-pane').jScrollPane({autoReinitialise : true});
+		}); 
+		
+	
+
+		$(".play").click(function(){
+		   $(this).hide();
+		});
+		
+		$(".man").click(function(){
+		   $('.inner_user').toggle();
+		   $('.act').hide();
+		});
+		
+		$(".big_video > div:first").css("display", "block");
+	    $(".list_videos li a").click(function(event) {
+			event.preventDefault();
+			var tab = $(this).attr("href");
+			$(".big_video > div").not(tab).css("display", "none");
+			$(tab).fadeIn();
+		}); 
+		$(".slider_images .box a").click(function(event) {
+		    event.preventDefault();
+			var img = $(this).children().attr("src");
+			$('.box_big a img').attr("src", img);
+			console.log(img)
+		})
+		
+		
+	});			
+    
+	</script>
+  </head>
+  <body class="inner">
+    <header>
+      <nav class="sign_in">
+        <div class="container">
+          <div class="language_nav">
+		    <div class="language">
+			<select onchange="window.location.href=this.options[this.selectedIndex].value">
+				<option value="#">EN</option>
+				<option value="#" selected="">RU</option>
+			</select>
+			</div>
+          </div>
+          <div class="sign_wrap">
+            <ul class="list_inline">
+			  <li><a href="#">Поддержка:</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Доступно</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Роздано</a></li>
+              <li><button class="donate_btn">Пожертвовать</button></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <nav class="top_nav">
+        <div class="container navtop">
+          <a href="#" class="logo"></a>
+		  <h1>Global Christian Support</h1>
+          <div class="search">
+            <a href="#" class="search_btn"></a>
+          </div>
+		  <ul class="nav_list_mini">
+			<li><a href="#">О нас</a></li>
+			<li><a href="#">Контакты</a></li>
+			<li><a href="#">Партнеры</a></li>
+			<li><a href="#">Faq</a></li>
+		  </ul>
+		  <form class="search-header" action="#">
+			<input type="text" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+        </div>
+      </nav>
+	  <nav class="top_nav">
+		<div class="container">
+			<ul class="list_inline nav_list">
+				<li class="has_items"><a href="#">Проекты</a>
+				    <ul>
+						<li><a href="ru/svidetelstva1/ot_semji_k_semje.html">От семьи к семье</a></li>
+						<li><a href="/pomozhem-vyzhit.html">Поможем выжить</a></li>
+						<li><a href="/proekt-blagovestiya-vera-ot-slyshanya.html">Вера от слышанья</a></li>
+						<li><a href="/tehnologiya-dobra.html">Технология добра</a></li>
+					</ul>
+				</li>
+				<li class="has_items"><a href="#">Помощь</a>
+				    <ul>
+						<li><a href="#">Просьбы</a></li>
+						<li><a href="#">Предложения</a></li>
+						<li><a href="#">Свидетельства</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Новости</a></li>
+				<li><a href="#"><span><span>9</span>+</span>Магазин</a></li>
+				<li><a href="#">Блоги</a></li>
+				<li><a href="#">Видео</a></li>
+				<li><a href="#">Знакомства</a></li>
+			</ul>
+			<ul class="list_inline nav_list_mini userlist">
+				<li><a href="#">Кристина</a></li>
+				<li class="man"><a href="#"><img src="img/man.png" alt=""><span class="act">1</span></a>
+				    <div class="inner_user">
+					    <div class="inner_user2">
+					        <div class="inner_user3">
+								<img class="userpic" src="img/userpic.png" alt="">
+								<div class="text_user">
+									<h2>Кристина Сидоренко</h2>
+									<p class="mail">Sidorenko@gmail.com</p>
+									<p class="messages1"><a href="#">15 новых уведомлений</a></p>
+									<p class="messages2"><a href="#">15 новых сообщений</a></p>
+								</div>
+							</div>
+							<div class="inner_user4">
+								<a class="more1" href="#"></a>
+						     	<a class="more2" href="#"></a>
+							</div>
+							
+							
+					    </div>
+					</div>
+				</li>
+			</ul>	
+		</div>
+      </nav>
+    </header>
+    <nav class="container breadcrumbs margin">
+	    <ul>
+			<li><a href="#">Главная </a></li>
+			<li>></li>
+			<li>Новости</li>
+		</ul>
+	</nav>
+	
+	<div class="content_columns">
+      <div class="container">
+			<div class="left-side userblock_side">
+			    <div class="userblock">
+				    <div class="userpic">
+				        <img src="https://i.ytimg.com/vi/lGcyi1seh2c/hqdefault.jpg.png" alt="" />
+					</div>
+					<div class="userblock descr">
+					    <p><a class="username" href="#">Кристина Сидоренкo  </a></p>
+						<p class="date">14 фев., 2015 14:55 </p>
+						<p class="info"><span class="state"><img src="img/flag.png" alt="" /> Украина</span> <span><img class="eye" src="img/eye_color.png" alt="" /> 57</span> <span><img  class="quote" src="img/quote_color.png" alt="" /> 34</span> </p>
+					</div>
+				</div>	
+				<div class="blog_inner">
+				    <h1>Как найти правильного супруга</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					<p class="pimg">
+					    <img src="img/img_big2.png" alt="">
+					</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+					
+					<p class="titles">
+					    <span>автор зарина Акопьянц</span>
+					</p>
+					<p class="titles">
+					    оригинал статьи <a href="#">google.com</a>
+					</p>
+					
+				</div>
+				
+				<div class="box_big">
+					<a href="#"><img src="img/slider_img.png" alt=""></a>
+				</div>
+				
+				<div class="slider_images">
+					<ul class="slides">
+						<li class="slide">
+							<div class="box">
+								<a href="#"><img src="img/slider_img.png" alt=""></a>
+							</div>
+							<div class="box">
+								<a href="#"><img src="img/img_big2.png" alt=""></a>
+							</div>
+							<div class="box">
+								<a href="#"><img src="img/slider_img.png" alt=""></a>
+							</div>
+						</li>
+						<li class="slide">
+							<div class="box">
+								<a href="#"><img src="img/slider_img.png" alt=""></a>
+							</div>
+							<div class="box">
+								<a href="#"><img src="img/img_big2.png" alt=""></a>
+							</div>
+							<div class="box">
+								<a href="#"><img src="img/slider_img.png" alt=""></a>
+							</div>
+						</li>
+						<li class="slide">
+							<div class="box">
+								<a href="#"><img src="img/slider_img.png" alt=""></a>
+							</div>
+							<div class="box">
+								<a href="#"><img src="img/img_big2.png" alt=""></a>
+							</div>
+							<div class="box">
+								<a href="#"><img src="img/slider_img.png" alt=""></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+				
+				
+				<div class="post-likes">
+                    <div class="sent_friend">Поделиться с друзьями </div>
+					<div class="social-likes social-likes_visible social-likes_ready">
+						<img src="img/socseti_likes.png" alt="">
+					</div>
+                </div>
+				
+				<div class="num_comments">Комментарии (10)</div>
+				<div class="more_div create_comment"><a class="more_btn" href="#"> Оставить комментарий </a></div>
+				
+				
+				<div class="comments">
+					<ul>
+						<li>
+							<img class="avatar" src="img/img_autor_mini.png" alt="" />
+							<div class="comments-text">
+								<p class="name"><a href="#">Василий пупкин</a><span class="data">30 фев 2016. 21:50</span></p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							</div>
+						</li>
+						<li>
+							<img class="avatar" src="img/img_autor_mini.png" alt="" />
+							<div class="comments-text">
+								<p class="name"><a href="#">Василий пупкин</a><span class="data">30 фев 2016. 21:50</span></p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+				
+            </div>
+			<div class="right-side">
+				<div class="sideblock blogs">
+					<div class="some-header">
+						<h2>Последние записи</h2>
+						<a href="#">Все блоги</a>
+					</div>
+					<div class="sideblock_text">
+					    <ul>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="https://i.ytimg.com/vi/lGcyi1seh2c/hqdefault.jpg.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+								<div class="blog_descr">
+								   <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+								</div>
+							</li>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+								<div class="blog_descr">
+								   <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+								</div>
+							</li>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+								<div class="blog_descr">
+								   <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>	
+				<div class="sideblock blogs">
+					<div class="some-header">
+						<h2>Топ авторов </h2>
+						<a href="#">Все блоги</a>
+					</div>
+					<div class="sideblock_text">
+					    <ul>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+							</li>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+							</li>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+							</li>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+							</li>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+							</li>
+							<li>
+							    <div class="author_descr">
+									<img class="left" src="img/userpic.png" alt="" />
+									<div class="blogs-text">
+										<p class="date">14 фев., 2015 14:55 </p>
+										<p class="name"><a href="#">Василиса Пупкина</a></p>
+										<p><span>153 лайков 45 комментариев </span></p>
+										<p class="state"><span><img src="img/flag.png" alt=""> Украина</span></p>
+									</div>
+								</div>
+							</li>
+							
+						</ul>
+					</div>
+				</div>	
+				
+				
+				
+				<div class="sideblock reclama">
+					<img src="img/reclama2.png"  alt="" />
+				</div>	
+				<div class="sideblock reclama">
+					<img src="img/reclama2.png"  alt="" />
+				</div>	
+				
+				
+            </div>
+      </div>
+    </div>
+	
+	
+	<section class="description inner">
+      <div class="container2">
+			<h2>Наши партнеры </h2>
+      </div>
+    </section>
+	
+	<section class="partners">
+      <div class="container">
+		<div class="slider4">
+			<ul class="slides">
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+				</li>
+			</ul>
+		</div>
+      </div>
+    </section>
+	
+	<section class="description last">
+      <div class="container2">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident </p>
+      </div>
+    </section>
+	
+    <footer>
+      <div class="container3">
+        <div class="column firstcolumn column_4 border">
+		  <h4>Категории</h4>
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>	  
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>
+        </div>
+        <div class="column column_4 border">
+		   <h4>Контакты</h4>
+			  <p><a href="#">Украина Киев <br /> ул. Дегтяревская 27</a></p>
+			  <p><a href="#">Схема проезда</a></p>
+			  <p class="phone">044-222-22-22 </p>
+        </div>
+		<div class="column column_4 third border">
+		    <h4>Наши партнеры</h4>
+            <p><a href="#">Ссылка 0</a></p>
+			<p><a href="#">Ссылка 1</a></p>
+			<p><a href="#">Ссылка 2</a></p>
+			<p><a href="#">Ссылка 3</a></p>
+			<p><a href="#">Ссылка 4</a></p>
+        </div>
+		<div class="column column_4 lastcolumn">
+		   <h4>Подписка</h4>
+		   <p>Будьте всегда в курсе новых событий!</p>
+           <form class="podpiska" action="#">
+			<input type="text" placeholder="Впишите здесь свой имейл" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+		  <p>Мы в социальных сетях</p>
+        </div>
+      </div>
+	  <div class="container3 downfooter">
+		  
+		  <div class="column left">
+			  
+			  <p>2016 GCS © All right reserved</p>
+			  
+		  </div>	  
+		  <div class="column right">
+			  
+			  <p>
+			     <a href="#"><img src="img/soc1.png" alt=""></a>
+				 <a href="#"><img src="img/soc2.png" alt=""></a>
+				 <a href="#"><img src="img/soc3.png" alt=""></a>
+				 <a href="#"><img src="img/soc4.png" alt=""></a>
+			  </p>
+		  </div>
+       
+      </div>
+    </footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+	<script src="js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function($) {
+	   
+		$('.scroll-pane-2').jScrollPane({autoReinitialise : true});
+		$('.chat_tab').jScrollPane({autoReinitialise : true});
+		$('.chat_scroll').jScrollPane({autoReinitialise : true});
+	});			
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.glide.min.js"></script>
+	<script type="text/javascript" src="js/jquery.spincrement.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script type="text/javascript" src="js/jquery.knob.modified.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function($) {
+		$('.slider').glide();
+		$('.slider2').glide();
+        $('.slider3').glide();
+		$('.slider4').glide();
+		$('.slider_images').glide({autoplay: false});
+		
+		$(".user").hover(
+			function() {
+				$(this).children('div.modalb').show();
+			},
+			function(){
+				$(this).children('div.modalb').hide();
+			}
+		);
+        
+
+
+	
+
+		$(".play").click(function(){
+		   $(this).hide();
+		});
+		
+		$(".man").click(function(){
+		   $('.inner_user').toggle();
+		   $('.act').hide();
+		});
+		
+		$(".big_video > div:first").css("display", "block");
+	    $(".list_videos li a").click(function(event) {
+			event.preventDefault();
+			var tab = $(this).attr("href");
+			$(".big_video > div").not(tab).css("display", "none");
+			$(tab).fadeIn();
+		}); 
+		$(".slider_images .box a").click(function(event) {
+		    event.preventDefault();
+			var img = $(this).children().attr("src");
+			$('.box_big a img').attr("src", img);
+			console.log(img)
+		})
+		
+		
+        $('ul.tabs_caption').on('click', 'li:not(.active)', function() {
+		   $(this)
+		   .addClass('active').siblings().removeClass('active')
+		   .closest('div.tabs').find('div.tabs_content').removeClass('active').eq($(this).index()).addClass('active');
+		});
+		
+		$('ul.tabs_caption li').on('click', function() {
+		  $('.map').show();
+		  $('.table_finance_header').hide();
+		  $('.table_finance').hide();
+		});
+		$('ul.tabs_caption li#a4').on('click', function() {
+		  $('.map').hide();
+		  $('.table_finance_header').show();
+		  $('.table_finance').show();
+		});
+		
+		
+		
+		$(".big_chat > div:first").css("display", "block");
+		$(".list_chats li:first").addClass('active');
+	    $(".list_chats li a").click(function(event) {
+		    $(this).parent().addClass('active').siblings().removeClass('active');
+			event.preventDefault();
+			var tab = $(this).attr("href");
+			$(".big_chat > div").not(tab).css("display", "none");
+			$(tab).fadeIn();
+		}); 
+		
+		
+		
+		google.charts.load('current', {'packages': ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+	    var containerWidth = $(".tabs_content").width();
+        var data = google.visualization.arrayToDataTable([
+          ['Year', '',{type: 'string', role: 'tooltip'}, '',{type: 'string', role: 'tooltip'},'',{type: 'string', role: 'tooltip'}],
+          [0,  100,'100',40,'40',36,'36'],
+          [1,  117,'117',46,'46',26,'26'],
+          [2,  66,'66',112,'112',36,'36'],
+          [3,  103,'103',54,'54',46,'46'],
+		  [4,  113,'113',64,'64',36,'36'],
+		  [5,  123,'123',24,'24',67,'67'],
+		  [6,  103,'103',34,'34',56,'56'],
+		  [7,  73,'73',44,'44',36,'36'],
+		  [8,  53,'53',54,'54',32,'32'],
+		  [9,  93,'93',44,'44',46,'46'],
+		  [10,  63,'63',64,'64',56,'56'],
+		  [11,  83,'83',54,'54',36,'36']
+        ]);
+		
+		var options = {
+          title: '',
+          hAxis: {title: '',  titleTextStyle: {color: '#333'}, textStyle: {color: '#8b8b8b'}, gridlines: {color: '#ccc', count:12}, baseline: {color: '#ccc'}},
+          vAxis: {minValue: 0, textPosition: 'none', gridlines: {color: '#ссс'}, textStyle: {color: '#8b8b8b'}, baseline: {color: '#ccc'}},
+		  'width': containerWidth,
+		  //tooltip: { isHtml: true }, 
+          'height':300,
+		  legend: {position: 'none', maxLines: 3, textStyle: {color: '#fff'}},
+		  areaOpacity: 0,
+		  chartArea:{width:'95%'},
+		  series: {
+		        0: {color:'#4ca9d8', pointShape: 'circle', pointSize: 12, dataOpacity: 0.5, pointsVisible:false},
+                1: {color:'#db6b21', pointShape: 'circle', pointSize: 12, dataOpacity: 0.5, pointsVisible:false},
+				2: {color:'#3aaa35', pointShape: 'circle', pointSize: 12, dataOpacity: 0.5, pointsVisible:false}
+            }
+			
+        };
+		//var chart = new google.charts.Line(document.getElementById('chart_div'));
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+        }
+		
+		$(window).resize(function(){
+		  drawChart();
+		});
+	
+	    function rounder() {
+			if ($.browser.msie  && parseInt($.browser.version, 10) === 8) {
+				
+			} else {
+
+				$(".orangeCircle").knob({
+					'min':0,
+					'max':100,
+					'readOnly': true,
+					'width': 95,
+					'height': 95,
+					'fgColor': '#dd732c',
+					'dynamicDraw': true,
+					'thickness': 0.2,
+					'tickColorizeValues': true,
+					'skin':'tron'
+				});
+
+			}
+		}
+	
+	    if($('#a2').hasClass('active')){
+			rounder();
+		}
+		$('#a2').click(function(){
+		
+				rounder();
+				
+				
+				
+				
+				(function () {
+				
+					var show = true;
+					var countbox = ".over_kpi";
+					$(window).on("scroll load resize", function(){
+				 
+						if(!show) return false;                   // Отменяем показ анимации, если она уже была выполнена
+				 
+						var w_top = $(window).scrollTop();        // Количество пикселей на которое была прокручена страница
+						var e_top = $(countbox).offset().top;     // Расстояние от блока со счетчиками до верха всего документа
+				 
+						var w_height = $(window).height();        // Высота окна браузера
+						var d_height = $(document).height();      // Высота всего документа
+				 
+						var e_height = $(countbox).outerHeight(); // Полная высота блока со счетчиками
+				 
+						if((w_height < 800) && (w_top + 600 >= e_top || w_height + w_top == d_height || e_height + e_top < w_height)){
+							$(".spincrement2").spincrement({
+								from: 0,                // Стартовое число
+								to: false,              // Итоговое число. Если false, то число будет браться из элемента с классом spincrement, также сюда можно напрямую прописать число. При этом оно может быть, как целым, так и с плавающей запятой
+								decimalPlaces: 0,       // Сколько знаков оставлять после запятой
+								decimalPoint: ".",      // Разделитель десятичной части числа
+								thousandSeparator: "", // Разделитель тыcячных
+								duration: 1000          // Продолжительность анимации в миллисекундах
+							});
+				 
+							show = false;
+						}
+					});
+					
+					
+				 }());
+				
+				
+				(function () {
+				    var w_height2 = $(window).height(); 
+					if(w_height2 >= 800){
+						$(".spincrement2").spincrement({
+							from: 0,                // Стартовое число
+							to: false,              // Итоговое число. Если false, то число будет браться из элемента с классом spincrement, также сюда можно напрямую прописать число. При этом оно может быть, как целым, так и с плавающей запятой
+							decimalPlaces: 0,       // Сколько знаков оставлять после запятой
+							decimalPoint: ".",      // Разделитель десятичной части числа
+							thousandSeparator: "", // Разделитель тыcячных
+							duration: 1000          // Продолжительность анимации в миллисекундах
+						});
+				    }
+				 }());
+				
+				
+			  
+			}
+		);
+		
+		
+		
+		
+		function animatebar() {
+		    var donation = ['300','600', '500','500','600','600'];
+		    var keeped = ['180','480', '380','280','280','0'];
+			$( ".progressbar" ).each(function(index) {
+			  
+			   $( this ).progressbar({
+					value: 1
+				});
+				var donationvalue = Math.round(keeped[index]/donation[index]*100); 
+				$( this ).children(".ui-progressbar-value").animate({
+				  width: ""+donationvalue+"%"
+				}, 1000);
+				$( this ).parent().children(".numbers").children(".numbar").html(keeped[index]);
+				
+				
+			});
+		};	
+		
+		if($('#a3').hasClass('active')){
+			  animatebar();
+		}
+		$('#a3').click(function(){
+			  animatebar();
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+      google.charts.setOnLoadCallback(drawChart2);
+      function drawChart2() {
+	  
+	  
+	   
+         
+      
+	  
+	  
+	  
+	  
+	  
+        var data2 = google.visualization.arrayToDataTable([
+						   
+				   
+		  ['Просьба', 'Просьба', 'Клики', { role: 'style' }],
+          ['Просьба 1 \n Дата \n  21,05,2016', 500, 400, '#b87333'],
+          ['Просьба 2 \n Дата \n  21,05,2016', 540, 440, '#b87333'],
+          ['Просьба 3 \n Дата \n  21,05,2016', 500, 400, '#b87333'],
+          ['Просьба 4 \n Дата \n  21,05,2016', 540, 440, '#b87333'],
+		  ['Просьба 5 \n Дата \n  21,05,2016', 500, 400, '#b87333'],
+          ['Просьба 6 \n Дата \n  21,05,2016', 540, 440, '#b87333'],
+          ['Просьба 7 \n Дата \n  21,05,2016', 500, 400, 'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']
+		  
+		  
+        ]);
+		
+		
+		
+		
+		
+		
+		
+		
+        var containerWidth = $(".tabs_content").width();
+        var options2 = {
+		   colors: ['#1b9e77', '#db6b21'],
+		  'width': containerWidth,
+		  //tooltip: { isHtml: true }, 
+		  chartArea:{width:'95%', height:'80%'},
+		  legend: {position: 'none', maxLines: 3, textStyle: {color: '#fff'}}
+        };
+
+        var chart2 = new google.charts.Bar(document.getElementById('chart_div2'));
+
+        chart2.draw(data2, options2);
+      }
+		
+		
+
+		
+		$(window).resize(function(){
+		  drawChart2();
+		});
+		
+		
+		
+		
+		
+		
+		
+        $(".table tr:even td").css("background-color", "#e6e4e4");
+		$(".table tr th:even").css("background-color", "#f9f5f5");
+		
+		
+	});		
+	 
+		
+	</script>
+  </head>
+  <body class="inner">
+    <header>
+      <nav class="sign_in">
+        <div class="container">
+          <div class="language_nav">
+		    <div class="language">
+			<select onchange="window.location.href=this.options[this.selectedIndex].value">
+				<option value="#">EN</option>
+				<option value="#" selected="">RU</option>
+			</select>
+			</div>
+          </div>
+          <div class="sign_wrap">
+            <ul class="list_inline">
+			  <li><a href="#">Поддержка:</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Доступно</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Роздано</a></li>
+              <li><button class="donate_btn">Пожертвовать</button></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <nav class="top_nav">
+        <div class="container navtop">
+          <a href="#" class="logo"></a>
+		  <h1>Global Christian Support</h1>
+          <div class="search">
+            <a href="#" class="search_btn"></a>
+          </div>
+		  <ul class="nav_list_mini">
+			<li><a href="#">О нас</a></li>
+			<li><a href="#">Контакты</a></li>
+			<li><a href="#">Партнеры</a></li>
+			<li><a href="#">Faq</a></li>
+		  </ul>
+		  <form class="search-header" action="#">
+			<input type="text" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+        </div>
+      </nav>
+	  <nav class="top_nav">
+		<div class="container">
+			<ul class="list_inline nav_list">
+				<li class="has_items"><a href="#">Проекты</a>
+				    <ul>
+						<li><a href="ru/svidetelstva1/ot_semji_k_semje.html">От семьи к семье</a></li>
+						<li><a href="/pomozhem-vyzhit.html">Поможем выжить</a></li>
+						<li><a href="/proekt-blagovestiya-vera-ot-slyshanya.html">Вера от слышанья</a></li>
+						<li><a href="/tehnologiya-dobra.html">Технология добра</a></li>
+					</ul>
+				</li>
+				<li class="has_items"><a href="#">Помощь</a>
+				    <ul>
+						<li><a href="#">Просьбы</a></li>
+						<li><a href="#">Предложения</a></li>
+						<li><a href="#">Свидетельства</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Новости</a></li>
+				<li><a href="#"><span><span>9</span>+</span>Магазин</a></li>
+				<li><a href="#">Блоги</a></li>
+				<li><a href="#">Видео</a></li>
+				<li><a href="#">Знакомства</a></li>
+			</ul>
+			<ul class="list_inline nav_list_mini userlist">
+				<li><a href="#">Кристина</a></li>
+				<li class="man"><a href="#"><img src="img/man.png" alt=""><span class="act">1</span></a>
+				    <div class="inner_user">
+					    <div class="inner_user2">
+					        <div class="inner_user3">
+								<img class="userpic" src="img/userpic.png" alt="">
+								<div class="text_user">
+									<h2>Кристина Сидоренко</h2>
+									<p class="mail">Sidorenko@gmail.com</p>
+									<p class="messages1"><a href="#">15 новых уведомлений</a></p>
+									<p class="messages2"><a href="#">15 новых сообщений</a></p>
+								</div>
+							</div>
+							<div class="inner_user4">
+								<a class="more1" href="#"></a>
+						     	<a class="more2" href="#"></a>
+							</div>
+							
+							
+					    </div>
+					</div>
+				</li>
+			</ul>	
+		</div>
+      </nav>
+    </header>
+    <nav class="container breadcrumbs margin">
+	    <ul>
+			<li><a href="#">Главная </a></li>
+			<li>></li>
+			<li>Новости</li>
+		</ul>
+	</nav>
+	
+	<div class="content_columns">
+      <div class="container">
+			<div class="left-side">
+			    
+				<div class="tabs tabs-page">
+
+				    <ul class="tabs_caption">
+						<li id="a1">Сообщения</li>
+						<li id="a2">Активность</li>
+						<li id="a3">Материалы</li>
+						<li class="active" id="a4">Финансы</li>
+				    </ul>
+
+				    <div class="tabs_content">
+				        <div class="tabs_search">
+							<form class="search-header" action="#">
+								<input type="text" name="poisk" value="">
+								<input class="searchbut" type="submit" value="">
+							</form>
+							<button class="more_btn">Добавить</button>
+						</div>
+						<div class="tabs_chat">
+						    <div class="chat_scroll">
+								<ul class="list_chats">
+									<li>
+										<a href="#tab-1">
+											<div class="item_left"><img class="bulb" src="img/bulb.png" alt=""><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#tab-2">
+											<div class="item_left"><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#tab-3">
+											<div class="item_left"><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#tab-4">
+											<div class="item_left"><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#tab-5">
+											<div class="item_left"><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#tab-6">
+											<div class="item_left"><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#tab-6">
+											<div class="item_left"><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#tab-6">
+											<div class="item_left"><img class="icon_message" src="img/icon_message.png" alt=""></div>
+											<div  class="item_right">
+												<p>Mark P.</p>
+												<span>Today, 12:39 PM</span>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="big_chat">
+							    <div class="chat_tab" id="tab-1">
+									<div class="item_left2"><img class="icon_message2" src="img/icon_message_2.png" alt=""></div>
+									<div class="item_right2">
+										<div  class="item_autor">
+											<div class="item_autor2">
+											   <div class="item_autor3"><a href="#">Lorem ipsum dolor sit amet</a></div>
+											   <div class="item_autor3"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></div>
+											</div>
+										</div>
+									</div>	
+									<div  class="item_answer read">
+										<div><a href="#">Lorem ipsum</a> <span>Прочитано в 12:00 </span></div>
+									</div>
+									<div  class="item_answer">
+										<div><a href="#">Lorem ipsum dolor</a></div>
+									</div>
+									<div class="item_left2"><img class="icon_message2" src="img/icon_message_2.png" alt=""></div>
+									<div class="item_right2">
+										<div  class="item_autor">
+											<div class="item_autor2">
+											   <div class="item_autor3"><a href="#">Lorem ipsum dolor sit amet</a></div>
+											   <div class="item_autor3"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></div>
+											</div>
+										</div>
+									</div>	
+									<div  class="item_answer">
+										<div><a href="#">Ok!</a></div>
+									</div>
+									<div class="item_left2"><img class="icon_message2" src="img/icon_message_2.png" alt=""></div>
+									<div class="item_right2">
+										<div  class="item_autor">
+											<div class="item_autor2">
+											   <div class="item_autor3"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a></div>
+											</div>
+										</div>
+									</div>	
+                                    <div  class="item_answer">
+										<div><a href="#">Ok!</a></div>
+									</div>
+									<div class="item_left2"><img class="icon_message2" src="img/icon_message_2.png" alt=""></div>
+									<div class="item_right2">
+										<div  class="item_autor">
+											<div class="item_autor2">
+											   <div class="item_autor3"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a></div>
+											</div>
+										</div>
+									</div>										
+								</div>	
+							    <div class="chat_tab" id="tab-2">
+									tab-2
+								</div>	
+								<div class="chat_tab" id="tab-3">
+									tab-2
+								</div>	
+								<div class="chat_tab" id="tab-4">
+									tab-2
+								</div>	
+								<div class="chat_tab" id="tab-5">
+									tab-2
+								</div>	
+								<div class="chat_tab" id="tab-6">
+									tab-2
+								</div>	
+							</div>
+						</div>
+						
+						<div class="send">
+				
+							<form class="message_send" action="#">
+								<textarea placeholder="Введите текст..."></textarea>
+								<button class="searchbut"></button>
+								<input class="message_submit" type="submit" value="Отпр.">
+							</form>
+						</div>
+								
+				    </div>
+				    <div class="tabs_content">
+							
+					    <div class="activity">
+						    <div class="circleStats">
+								<div class="circleStatsItem">
+									<span class="percent">%</span>
+									<input type="text" value="75" class="orangeCircle" readonly="readonly" >
+								</div>
+							</div>
+							<div class="right">
+					            <h2>Ваша позиция в топ 100 авторов на сайте</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					        </div>
+					    </div>
+					    <div class="grafic">
+						    <div class="legend">
+								<div><span class="legend1"></span>Кол-во просмотров</div>
+								<div><span class="legend2"></span>Кол-во подписчиков</div>
+								<div><span class="legend3"></span>Кол-во комментариев</div>
+							</div>
+						    <div id="chart_div"></div>
+							<div class="legend2">
+								<span>Янв</span>
+								<span>Февр</span>
+								<span>Март</span>
+								<span>Апр</span>
+								<span>Май</span>
+								<span>Июнь</span>
+								<span>Июль</span>
+								<span>Авг</span>
+								<span>Сент</span>
+								<span>Окт</span>
+								<span>Нояб</span>
+								<span>Дек</span>
+							</div>
+						</div>
+						<div class="over_kpi">
+							<div class="kpi">
+								<div class="kpi1">
+									<span><span class="big spincrement2">56</span></span>
+									<span><span class="small">Просмотров</span></span>
+									<div class="hint hint1">
+									    <div class="scroll-pane-2" >
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+										</div>
+									</div>	
+								</div>
+								<div class="kpi2">
+									<span><span class="big spincrement2">75</span></span>
+									<span><span class="small">Подписчиков</span></span>
+									<div class="hint hint2">
+									   <div class="scroll-pane-2">
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+										</div>
+									</div>	
+								</div>
+								<div class="kpi3">
+									<span><span class="big spincrement2">86</span></span>
+									<span><span class="small">Комментариев</span></span>
+									<div class="hint hint3">
+									   <div class="scroll-pane-2">
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+											<p>Кристина Сидоренко </p>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+						<div class="post-likes">
+							<div class="sent_friend">Поделиться с друзьями </div>
+							<div class="social-likes social-likes_visible social-likes_ready">
+									<img src="img/socseti_likes.png" alt="">
+							</div>
+					     </div>
+				    </div>
+					<div class="tabs_content">
+					    <div class="how_much">
+							<h2>Количество опубликованных материалов на сайте. </h2>
+							<p class="ph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+							
+							<div class="progressbars">
+							    <div class="bar">
+							        <div class="bar1">
+							            <a href="#">Просьбы</a>
+									</div>	
+									<div class="bar2">
+							            2
+							        </div>
+									<div class="bar3">
+										<div class="statusbar-progress3">
+										    <div class="numbers"><div class="numbers2">Кол-во просмотров</div><div class="numbar numbar1"></div></div>
+											<div class="progressbar progressbar1"></div> 
+										</div>
+                                       
+							        </div>
+							    </div>
+							    <div class="bar">
+							        <div class="bar1">
+							            <a href="#">Предложения</a>
+									</div>	
+									<div class="bar2">
+							            2
+							        </div>
+									<div class="bar3">
+							            <div class="statusbar-progress3">
+										    <div class="numbers"><div class="numbar numbar2"></div></div>
+											<div class="progressbar progressbar2"></div> 
+										</div>
+                                      
+							        </div>
+							    </div>
+								<div class="bar">
+							        <div class="bar1">
+							            <a href="#">Свидетельства</a>
+									</div>	
+									<div class="bar2">
+							            12
+							        </div>
+									<div class="bar3">
+							            <div class="statusbar-progress3">
+										    <div class="numbers"><div class="numbar numbar3" onload="animatebar();"></div></div>
+											<div class="progressbar progressbar3"></div> 
+										</div>
+                                       
+							        </div>
+							    </div>
+							    <div class="bar">
+							        <div class="bar1">
+							            <a href="#">Блоги</a>
+									</div>	
+									<div class="bar2">
+							            2
+							        </div>
+									<div class="bar3">
+							            <div class="statusbar-progress3">
+										    <div class="numbers"><div class="numbar numbar4"></div></div>
+											<div class="progressbar progressbar4"></div> 
+										</div>
+                                       
+							        </div>
+							    </div>
+								<div class="bar">
+							        <div class="bar1">
+							            <a href="#">Видео</a>
+									</div>	
+									<div class="bar2">
+							            12
+							        </div>
+									<div class="bar3">
+							            <div class="statusbar-progress3">
+										    <div class="numbers"><div class="numbar numbar5"></div></div>
+											<div class="progressbar progressbar5"></div> 
+										</div>
+                                       
+							        </div>
+							    </div>
+								<div class="bar">
+							        <div class="bar1">
+							            <a href="#">Знакомства</a>
+									</div>	
+									<div class="bar2">
+							            2
+							        </div>
+									<div class="bar3">
+							            <div class="statusbar-progress3">
+										    <div class="numbers"><div class="numbers2 alert">Анкета не заполнена</div><div class="numbar numbar6"></div></div>
+											<div class="progressbar progressbar6"></div> 
+										</div>
+                                       
+							        </div>
+							    </div>
+							</div>
+							
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						
+				        </div>
+					</div>
+					<div class="tabs_content active">
+					    <div class="grafic2">
+						    <h2>Финансовая активность помогающих по вашим<br /> просьбам пользователе</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<h2>Количество просмотров ваших просьб,<br /> подкюченных к программе GCS</h2>
+						    <!--<div class="legend3">
+								<div><span class="legend1"></span>Кол-во просмотров</div>
+								<div><span class="legend2"></span>Кол-во подписчиков</div>
+								<div><span class="legend3"></span>Кол-во комментариев</div>
+							</div>-->
+						    <div id="chart_div2"></div>
+							<!--<div class="legend4">
+								<span>Янв</span>
+								<span>Февр</span>
+								<span>Март</span>
+								<span>Апр</span>
+								<span>Май</span>
+								<span>Июнь</span>
+								<span>Июль</span>
+								<span>Авг</span>
+								<span>Сент</span>
+								<span>Окт</span>
+								<span>Нояб</span>
+								<span>Дек</span>
+							</div>-->
+						</div>
+				    </div>
+				  
+				</div>
+				
+			    
+			  
+			    <div class="map">
+					<h3>Узнайте месторасположение ваших друзей</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				    <div class="map2">
+						<div>
+						    <!--<img src="img/map.png" alt="">-->
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1796.3195755573274!2d30.473392648253853!3d50.45265734394329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suk!2sua!4v1457713104406" style="width:100%; height:250px; border:0" allowfullscreen></iframe>
+						</div>	
+						
+						<div class="more_div"><a class="more_btn" href="#"> ОБНОВИТЬ МОЕ МЕСТОПОЛОЖЕНИЕ   </a></div>
+						
+					</div>
+			    </div>
+			  
+				
+				
+            </div>
+			<div class="right-side">
+			    <div class="sideblock prof nopadding">
+					
+					<div class="sideblock_text">
+					    <div class="pic_prof">
+						    <img src="img/pic_prof.png" alt="">
+						</div>
+						<div class="profile">
+						    <h3>Василиса пупкина</h3>
+							<div class="info info_centered">
+								<span class="megabig"> <span class="rating_big">5</span><span class="link">Репутация</span></span>
+								<div class="hint">
+								   <div class="scroll-pane-2">
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+										<p>Кристина Сидоренко </p>
+									</div>
+								</div>	
+							</div>
+							<div class="profitems">
+								<ul>
+									<li><div>возраст</div></li>
+									<li><div>страна</div></li>
+									<li><div>телефон</div></li>
+									<li><div>профессия</div></li>
+									<li><div>на сайте</div></li>
+									<li><div>о себе</div></li>
+								</ul>
+								<div class="nonverstable">
+									<span class="yellow">25</span>
+									<span class="yellow">Украина</span>
+									<span class="yellow">+125375197</span>
+									<span class="yellow">журналист</span>
+									<span class="yellow">1.12.2012</span>
+									<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </span>
+								</div>	
+							</div>
+							<div class="soc">
+							    <a class="soc1" href="#"></a>
+								<a class="soc2" href="#"></a>
+								<a class="soc3" href="#"></a>
+								<a class="soc4" href="#"></a>
+							</div>
+							<div class="more_div create_profile"><a class="more_btn" href="#"> Редактировать профиль  </a></div>
+							
+						</div>
+						
+					</div>
+				</div>	
+            </div>
+      </div>
+    </div>
+	
+	<section class="table_finance_header">
+      <div class="container">
+		
+		<h2>Детальная информация по сбору средств на ваши нужды<br /> подключенные к программе GCShelp</h2>
+		
+      </div>
+    </section>
+	
+	<section class="table_finance">
+      <div class="container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th id="filter">Фильтр</th>
+					<th>Дата</th>
+					<th>Имя</th>
+					<th>Транзакции</th>
+					<th>Баланс</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span class="filter1">1</span></td>
+					<td>
+						15.12.2015   
+					</td>
+					<td>
+						Николай Коваль
+					</td>
+					<td>
+						75$     
+					</td>
+					<td>
+						75$    
+					</td>
+				</tr>
+				<tr>
+					<td><span class="filter2">2</span></td>
+					<td>
+						15.12.2015   
+					</td>
+					<td>
+						Николай Коваль
+					</td>
+					<td>
+						75$     
+					</td>
+					<td>
+						75$    
+					</td>
+				</tr>
+				<tr>
+					<td><span class="filter3">3</span></td>
+					<td>
+						15.12.2015   
+					</td>
+					<td>
+						Николай Коваль
+					</td>
+					<td>
+						75$     
+					</td>
+					<td>
+						75$    
+					</td>
+				</tr>
+				<tr>
+					<td><span class="filter4">4</span></td>
+					<td>
+						15.12.2015   
+					</td>
+					<td>
+						Николай Коваль
+					</td>
+					<td>
+						75$     
+					</td>
+					<td>
+						75$    
+					</td>
+				</tr>
+				<tr>
+					<td><span class="filter5">5</span></td>
+					<td>
+						15.12.2015   
+					</td>
+					<td>
+						Николай Коваль
+					</td>
+					<td>
+						75$     
+					</td>
+					<td>
+						75$    
+					</td>
+				</tr>
+				<tr>
+					<td><span class="filter6">6</span></td>
+					<td>
+						15.12.2015   
+					</td>
+					<td>
+						Николай Коваль
+					</td>
+					<td>
+						<span class="minus">-75$  </span>   
+					</td>
+					<td>
+						75$    
+					</td>
+				</tr>
+				<tr>
+					<td><span class="filter7">7</span></td>
+					<td>
+						15.12.2015   
+					</td>
+					<td>
+						Николай Коваль
+					</td>
+					<td>
+						75$     
+					</td>
+					<td>
+						75$    
+					</td>
+				</tr>
+			</tbody>	
+		</table>
+      </div>
+    </section>
+	
+	
+	<section class="description inner">
+      <div class="container2">
+			<h2>Наши партнеры </h2>
+      </div>
+    </section>
+	
+	<section class="partners">
+      <div class="container">
+		<div class="slider4">
+			<ul class="slides">
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+				</li>
+			</ul>
+		</div>
+      </div>
+    </section>
+	
+	<section class="description last">
+      <div class="container2">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident </p>
+      </div>
+    </section>
+	
+    <footer>
+      <div class="container3">
+        <div class="column firstcolumn column_4 border">
+		  <h4>Категории</h4>
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>	  
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>
+        </div>
+        <div class="column column_4 border">
+		   <h4>Контакты</h4>
+			  <p><a href="#">Украина Киев <br /> ул. Дегтяревская 27</a></p>
+			  <p><a href="#">Схема проезда</a></p>
+			  <p class="phone">044-222-22-22 </p>
+        </div>
+		<div class="column column_4 third border">
+		    <h4>Наши партнеры</h4>
+            <p><a href="#">Ссылка 0</a></p>
+			<p><a href="#">Ссылка 1</a></p>
+			<p><a href="#">Ссылка 2</a></p>
+			<p><a href="#">Ссылка 3</a></p>
+			<p><a href="#">Ссылка 4</a></p>
+        </div>
+		<div class="column column_4 lastcolumn">
+		   <h4>Подписка</h4>
+		   <p>Будьте всегда в курсе новых событий!</p>
+           <form class="podpiska" action="#">
+			<input type="text" placeholder="Впишите здесь свой имейл" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+		  <p>Мы в социальных сетях</p>
+        </div>
+      </div>
+	  <div class="container3 downfooter">
+		  
+		  <div class="column left">
+			  
+			  <p>2016 GCS © All right reserved</p>
+			  
+		  </div>	  
+		  <div class="column right">
+			  
+			  <p>
+			     <a href="#"><img src="img/soc1.png" alt=""></a>
+				 <a href="#"><img src="img/soc2.png" alt=""></a>
+				 <a href="#"><img src="img/soc3.png" alt=""></a>
+				 <a href="#"><img src="img/soc4.png" alt=""></a>
+			  </p>
+		  </div>
+       
+      </div>
+    </footer>
+
+
+  </body>
+</html>

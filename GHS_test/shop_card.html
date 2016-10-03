@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.glide.min.js"></script>
+	<script type="text/javascript" src="js/jquery.spincrement.js"></script>
+	<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function($) {
+		var glide = $('.slider').glide().data('api_glide');
+		$(window).on('keyup', function (key) {
+			if (key.keyCode === 13) {
+				glide.jump(3, console.log('ОЛОЛО!'));
+			};
+		});
+		$('.slider-arrow').on('click', function() {
+			console.log(glide.current());
+		});
+		
+		$('.slider2').glide();
+        $('.slider3').glide();
+		$('.slider4').glide();
+		
+		$(".user").hover(
+			function() {
+				$(this).children('div.modalb').show();
+			},
+			function(){
+				$(this).children('div.modalb').hide();
+			}
+		);
+        
+		$(function()
+		{
+		   $('.scroll-pane').jScrollPane({autoReinitialise : true});
+		}); 
+		
+		
+
+
+		$(".play").click(function(){
+		   $(this).hide();
+		});
+		
+		$(".man").click(function(){
+		   $('.inner_user').toggle();
+		   $('.act').hide();
+		});
+		
+		
+		$(".shop_card_preview img").click(function(){
+		   $('.shop_card_preview img').css('border','2px solid #fff');
+		   $(this).css('border','2px solid #d2335c');
+		   var img = $(this).attr("src");
+		});
+		
+		
+		$("img.big_pic:first").css("display", "inline");
+		$(".shop_card_preview a").click(function(event) {
+			event.preventDefault();
+			var img = $(this).attr("href");
+			$(".big_pic").not(img).hide();
+			$(img).show();
+	    }); 
+		
+		
+
+		$(".this_tab > div:first").css("display", "block");
+		$(".shop_card_left .tabs ul li a").click(function(event) {
+			event.preventDefault();
+			var tab = $(this).attr("href");
+			$(".this_tab > div").not(tab).css("display", "none");
+			$(tab).fadeIn();
+			
+			$('.tabs ul li').css('border-bottom','1px solid #d5dce5');
+		    $(this).parent().css('border-bottom','1px solid #d2335c');
+	    }); 
+		
+		/*$(function() {
+			$( ".progressbarr" ).progressbar({
+			  value: 37
+			});
+		});*/
+		
+	});			
+    
+	</script>
+  </head>
+  <body class="inner">
+    <header>
+      <nav class="sign_in">
+        <div class="container">
+          <div class="language_nav">
+		    <div class="language">
+			<select onchange="window.location.href=this.options[this.selectedIndex].value">
+				<option value="#">EN</option>
+				<option value="#" selected="">RU</option>
+			</select>
+			</div>
+          </div>
+          <div class="sign_wrap">
+            <ul class="list_inline">
+			  <li><a href="#">Поддержка:</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Доступно</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Роздано</a></li>
+              <li><button class="donate_btn">Пожертвовать</button></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <nav class="top_nav">
+        <div class="container navtop">
+          <a href="#" class="logo"></a>
+		  <h1>Global Christian Support</h1>
+          <div class="search">
+            <a href="#" class="search_btn"></a>
+          </div>
+		  <ul class="nav_list_mini">
+			<li><a href="#">О нас</a></li>
+			<li><a href="#">Контакты</a></li>
+			<li><a href="#">Партнеры</a></li>
+			<li><a href="#">Faq</a></li>
+		  </ul>
+		  <form class="search-header" action="#">
+			<input type="text" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+        </div>
+      </nav>
+	  <nav class="top_nav">
+		<div class="container">
+			<ul class="list_inline nav_list">
+				<li class="has_items"><a href="#">Проекты</a>
+				    <ul>
+						<li><a href="ru/svidetelstva1/ot_semji_k_semje.html">От семьи к семье</a></li>
+						<li><a href="/pomozhem-vyzhit.html">Поможем выжить</a></li>
+						<li><a href="/proekt-blagovestiya-vera-ot-slyshanya.html">Вера от слышанья</a></li>
+						<li><a href="/tehnologiya-dobra.html">Технология добра</a></li>
+					</ul>
+				</li>
+				<li class="has_items"><a href="#">Помощь</a>
+				    <ul>
+						<li><a href="#">Просьбы</a></li>
+						<li><a href="#">Предложения</a></li>
+						<li><a href="#">Свидетельства</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Новости</a></li>
+				<li><a href="#"><span><span>9</span>+</span>Магазин</a></li>
+				<li><a href="#">Блоги</a></li>
+				<li><a href="#">Видео</a></li>
+				<li><a href="#">Знакомства</a></li>
+			</ul>
+			<ul class="list_inline nav_list_mini userlist">
+				<li><a href="#">Кристина</a></li>
+				<li class="man"><a href="#"><img src="img/man.png" alt=""><span class="act">1</span></a>
+				    <div class="inner_user">
+					    <div class="inner_user2">
+					        <div class="inner_user3">
+								<img class="userpic" src="img/userpic.png" alt="">
+								<div class="text_user">
+									<h2>Кристина Сидоренко</h2>
+									<p class="mail">Sidorenko@gmail.com</p>
+									<p class="messages1"><a href="#">15 новых уведомлений</a></p>
+									<p class="messages2"><a href="#">15 новых сообщений</a></p>
+								</div>
+							</div>
+							<div class="inner_user4">
+								<a class="more1" href="#"></a>
+						     	<a class="more2" href="#"></a>
+							</div>
+							
+							
+					    </div>
+					</div>
+				</li>
+			</ul>	
+		</div>
+      </nav>
+    </header>
+    <nav class="container breadcrumbs">
+	    <ul>
+			<li><a href="#">Главная </a></li>
+			<li>></li>
+			<li>Блоги</li>
+		</ul>
+	</nav>
+    
+	    
+	<section class="description">
+      <div class="container">
+		
+		<h2>Карточка товара</h2>
+		<p>Приобретая товары некоммерческих организаций вы можете помочь, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+      </div>
+    </section>
+	
+	
+	
+
+	<section class="shop_card">
+      <div class="container">
+			
+			<div class="shop_card_left">
+			    <h2>Товар первый краткое название</h2>
+				
+				<div class="tabs">
+					<ul>
+					    <li>
+						    <a href="#tab-1">Описание</a>
+						</li>
+						<li>
+						    <a href="#tab-2">Характеристики</a>
+						</li>
+						<li>
+						    <a href="#tab-3">Доставка</a>
+						</li>
+					</ul>
+					<div class="this_tab">
+					    <div id="tab-1">
+					        <p>Одна из интерфейсных проблем современных программ: они уже знают dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Оригинал статьи  <a href="#">http://ludwigbistronovsky.ru/salt/</a></p>
+					    </div>
+						<div id="tab-2">
+					        tab-2
+					    </div>
+						<div id="tab-3">
+					        tab-3
+					    </div>
+					</div>
+				</div>
+				<div class="block_sale">
+				    <form>
+					    135$
+						<input type="submit" class="sale_btn" value="Купить" />
+						<input type="number" min="0" value="1" step="1" />
+					</form>
+				</div>
+			</div>
+			<div class="shop_card_right">
+			
+			    <div class="shop_card_preview">
+					<a href="#img-1"><img src="img/preview_card.png" alt=""></a>
+					<a href="#img-2"><img src="img/preview_card.png" alt=""></a>
+					<a href="#img-3"><img src="img/preview_card.png" alt=""></a>
+			    </div>
+			    <img id="img-1" class="big_pic" src="img/card_img.png" alt="">
+				<img id="img-2" class="big_pic" src="img/card_img.png" alt="">
+				<img id="img-3" class="big_pic" src="img/card_img.png" alt="">
+			</div>
+			
+      </div>
+    </section>
+
+	
+	<section class="description inner">
+      <div class="container2">
+			<h2>Наши партнеры </h2>
+      </div>
+    </section>
+	
+	<section class="partners">
+      <div class="container">
+		<div class="slider4">
+			<ul class="slides">
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					    <a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+				</li>				
+			</ul>
+		</div>
+      </div>
+    </section>
+	
+	<section class="description last">
+      <div class="container2">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident </p>
+      </div>
+    </section>
+	
+    <footer>
+      <div class="container3">
+        <div class="column firstcolumn column_4 border">
+		  <h4>Категории</h4>
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>	  
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>
+        </div>
+        <div class="column column_4 border">
+		   <h4>Контакты</h4>
+			  <p><a href="#">Украина Киев <br /> ул. Дегтяревская 27</a></p>
+			  <p><a href="#">Схема проезда</a></p>
+			  <p class="phone">044-222-22-22 </p>
+        </div>
+		<div class="column column_4 third border">
+		    <h4>Наши партнеры</h4>
+            <p><a href="#">Ссылка 0</a></p>
+			<p><a href="#">Ссылка 1</a></p>
+			<p><a href="#">Ссылка 2</a></p>
+			<p><a href="#">Ссылка 3</a></p>
+			<p><a href="#">Ссылка 4</a></p>
+        </div>
+		<div class="column column_4 lastcolumn">
+		   <h4>Подписка</h4>
+		   <p>Будьте всегда в курсе новых событий!</p>
+           <form class="podpiska" action="#">
+			<input type="text" placeholder="Впишите здесь свой имейл" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+		  <p>Мы в социальных сетях</p>
+        </div>
+      </div>
+	  <div class="container3 downfooter">
+		  
+		  <div class="column left">
+			  
+			  <p>2016 GCS © All right reserved</p>
+			  
+		  </div>	  
+		  <div class="column right">
+			  
+			  <p>
+			     <a href="#"><img src="img/soc1.png" alt=""></a>
+				 <a href="#"><img src="img/soc2.png" alt=""></a>
+				 <a href="#"><img src="img/soc3.png" alt=""></a>
+				 <a href="#"><img src="img/soc4.png" alt=""></a>
+			  </p>
+		  </div>
+       
+      </div>
+    </footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style-slide.css">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+	<script src="js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function($) {
+		
+		  $('.scroll-pane').jScrollPane({autoReinitialise : true});
+		 
+	});			
+	</script>
+	
+
+
+	<style>
+		#slides .slidesNext {
+			right:35px;
+			left:auto;
+		}
+		#slides .slidesPrevious {
+			left:35px;
+		}
+	</style>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.glide.min.js"></script>
+	<script type="text/javascript" src="js/jquery.spincrement.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/slides.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function($) {
+	    $(function(){
+			$("#slides").slides({
+				responsive: true,
+                height: 470
+			});
+			setTimeout (function(){
+			$("#slides").slides("play");
+			}, 4000);
+		});
+		$(function(){
+			$("#slides2").slides({
+				responsive: true,
+                height: 500
+			});
+			setTimeout (function(){
+			$("#slides2").slides("play");
+			}, 4000);
+		});
+		$(function(){
+			$("#slides3").slides({
+				responsive: true,
+                height: 410
+			});
+			setTimeout (function(){
+			$("#slides3").slides("play");
+			}, 4000);
+		});
+		
+		
+		//$('.slider').glide();
+		//$('.slider2').glide();
+        //$('.slider3').glide();
+		$('.slider4').glide();
+		
+		$(".user").hover(
+			function() {
+				$(this).children('div.modalb').show();
+			},
+			function(){
+				$(this).children('div.modalb').hide();
+			}
+		);
+		var show = true;
+		var countbox = "#counts";
+		$(window).on("scroll load resize", function(){
+	 
+			if(!show) return false;                   // Отменяем показ анимации, если она уже была выполнена
+	 
+			var w_top = $(window).scrollTop();        // Количество пикселей на которое была прокручена страница
+			var e_top = $(countbox).offset().top;     // Расстояние от блока со счетчиками до верха всего документа
+	 
+			var w_height = $(window).height();        // Высота окна браузера
+			var d_height = $(document).height();      // Высота всего документа
+	 
+			var e_height = $(countbox).outerHeight(); // Полная высота блока со счетчиками
+	 
+			if(w_top + w_height >= e_top || w_height + w_top == d_height || e_height + e_top < w_height){
+				$(".spincrement").spincrement({
+					from: 0,                // Стартовое число
+					to: false,              // Итоговое число. Если false, то число будет браться из элемента с классом spincrement, также сюда можно напрямую прописать число. При этом оно может быть, как целым, так и с плавающей запятой
+					decimalPlaces: 0,       // Сколько знаков оставлять после запятой
+					decimalPoint: ".",      // Разделитель десятичной части числа
+					thousandSeparator: "", // Разделитель тыcячных
+					duration: 1000          // Продолжительность анимации в миллисекундах
+				});
+	 
+				show = false;
+			}
+		});
+
+		$(".play").click(function(){
+		   $(this).hide();
+		});
+		
+		$(".man").click(function(){
+		   $('.inner_user').toggle();
+		   $('.act').hide();
+		});
+		
+		$(".big_video > div:first").css("display", "block");
+		
+		var zagol_first = $(".list_videos li a").children('p').html();
+		$(".videoblog h2 span").html(zagol_first);
+		
+	    $(".list_videos li a").click(function(event) {
+			event.preventDefault();
+			var tab = $(this).attr("href");
+			$(".big_video > div").not(tab).css("display", "none");
+			$(tab).fadeIn();
+			
+			var zagol = $(this).children('p').html();
+			$(".videoblog h2 span").html(zagol);
+		}); 
+		
+	});			
+    
+	</script>
+	
+  </head>
+  <body>
+    <header>
+      <nav class="sign_in">
+        <div class="container">
+          <div class="language_nav">
+		    <div class="language">
+			<select onchange="window.location.href=this.options[this.selectedIndex].value">
+				<option value="#">EN</option>
+				<option value="#" selected="">RU</option>
+			</select>
+			</div>
+          </div>
+          <div class="sign_wrap">
+            <ul class="list_inline">
+			  <li><a href="#">Поддержка:</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Доступно</a></li>
+			  <li><a href="#"><span>146</span></a></li>
+              <li><a href="#">$ Роздано</a></li>
+              <li><button class="donate_btn">Пожертвовать</button></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <nav class="top_nav">
+        <div class="container navtop">
+          <a href="#" class="logo"></a>
+		  <h1>Global Christian Support</h1>
+          <div class="search">
+            <a href="#" class="search_btn"></a>
+          </div>
+		  <ul class="nav_list_mini">
+			<li><a href="#">О нас</a></li>
+			<li><a href="#">Контакты</a></li>
+			<li><a href="#">Партнеры</a></li>
+			<li><a href="#">Faq</a></li>
+		  </ul>
+		  <form class="search-header" action="#">
+			<input type="text" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+        </div>
+      </nav>
+	  <nav class="top_nav">
+		<div class="container">
+			<ul class="list_inline nav_list">
+				<li class="has_items"><a href="#">Проекты</a>
+				    <ul>
+						<li><a href="ru/svidetelstva1/ot_semji_k_semje.html">От семьи к семье</a></li>
+						<li><a href="/pomozhem-vyzhit.html">Поможем выжить</a></li>
+						<li><a href="/proekt-blagovestiya-vera-ot-slyshanya.html">Вера от слышанья</a></li>
+						<li><a href="/tehnologiya-dobra.html">Технология добра</a></li>
+					</ul>
+				</li>
+				<li class="has_items"><a href="#">Помощь</a>
+				    <ul>
+						<li><a href="#">Просьбы</a></li>
+						<li><a href="#">Предложения</a></li>
+						<li><a href="#">Свидетельства</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Новости</a></li>
+				<li><a href="#"><span><span>9</span>+</span>Магазин</a></li>
+				<li><a href="#">Блоги</a></li>
+				<li><a href="#">Видео</a></li>
+				<li><a href="#">Знакомства</a></li>
+			</ul>
+			<ul class="list_inline nav_list_mini userlist">
+				<li><a href="#">Кристина</a></li>
+				<li class="man"><a href="#"><img src="img/man.png" alt=""><span class="act">1</span></a>
+				    <div class="inner_user">
+					    <div class="inner_user2">
+					        <div class="inner_user3">
+								<img class="userpic" src="img/userpic.png" alt="">
+								<div class="text_user">
+									<h2>Кристина Сидоренко</h2>
+									<p class="mail">Sidorenko@gmail.com</p>
+									<p class="messages1"><a href="#">15 новых уведомлений</a></p>
+									<p class="messages2"><a href="#">15 новых сообщений</a></p>
+								</div>
+							</div>
+							<div class="inner_user4">
+								<a class="more1" href="tabs.html"></a>
+						     	<a class="more2" href="#"></a>
+							</div>
+							
+							
+					    </div>
+					</div>
+				</li>
+				<li class="faq"><a href="#"><!--<img src="img/faq.png" alt="">--></a>
+			</ul>	
+		</div>
+      </nav>
+    </header>
+	
+
+    <section>
+      <div class="container slider_container">
+		
+		
+		<div id="slides">
+		
+		    <div class="box">
+				<img src="img/slide1.png" alt="">
+				<div class="descr">
+					<h2>Благотворительный маркет</h2>
+					<p>Поддержите социальные проекты, приобретая продукцию некоммерческих организаций</p>
+					<p class="btn"><a class="more_btn" href="#">Узнать больше</a></p>
+				</div>
+			</div>
+			<div class="box">
+				<img src="img/slide2.png" alt="">
+				<div class="descr">
+					<h2>Программа "От семьи к семье"</h2>
+					<p>Поддержите социальные проекты, приобретая продукцию некоммерческих организаций</p>
+					<p class="btn"><a class="more_btn" href="#">Узнать больше</a></p>
+				</div>
+			</div>
+			<div class="box">
+				<img src="img/slide3.png" alt="">
+				<div class="descr">
+					<h2>Финансовая поддержка GCS Help</h2>
+					<p>Поддержите социальные проекты, приобретая продукцию некоммерческих организаций</p>
+					<p class="btn"><a class="more_btn" href="#">Узнать больше</a></p>
+				</div>
+			</div>
+		
+		</div>
+		
+      </div>
+    </section>
+	
+	<section class="description">
+      <div class="container">
+		
+		<h2>Платформа взаимопомощи </h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+      </div>
+    </section>
+	
+	<section  class="two-blocks">
+      <div class="container">
+	  
+	    <div class="und"><div></div></div>
+		
+		<div class="two-elements left">
+		    <div>
+				<h2>Просьбы о помощи </h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p><a href="#" class="more_btn">Узнать больше</a></p>
+			</div>
+        </div>
+		
+		<div class="two-elements right">
+		    <div>
+				<h2>Предложения помощи </h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p><a href="#" class="more_btn">Узнать больше</a></p>
+			</div>
+       </div>
+	   
+      </div>
+	  <div class="container benefits" id="counts">
+	    <div class="column column_4 ">
+          <p>
+            <span class="num spincrement">443</span>
+            <span class="text">Доступная <br />сумма</span>  
+          </p>
+        </div>
+        <div class="column column_4 ">
+          <p>
+            <span class="num spincrement">3443</span>
+            <span class="text">Свидетельства <br />пользователей</span>  
+          </p>
+        </div>
+        <div class="column column_4 ">
+          <p>
+            <span class="num spincrement">4543</span>
+            <span class="text">Количество <br />партнеров</span>  
+          </p>
+        </div>
+        <div class="column column_4">
+          <p>
+            <span class="num spincrement">1438</span>
+            <span class="text">Количество <br />участников</span>  
+          </p>
+        </div>
+      </div>
+    </section>
+
+	<section class="description">
+      <div class="container">
+		
+		<h2>Дополнительные возможности </h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+      </div>
+    </section>
+	
+	
+	<section class="columns">
+	  <div class="container">
+	    <div class="column column_4 border block_1">
+            <div class=" innerblock">
+			    <div>
+					<h3>Программа поддержки GCS Help</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, </p>
+					<a href="#" class="more_btn">Подробнее </a>
+				</div>
+            </div>
+        </div>
+		<div class="column column_4 border block_2">
+            <div class=" innerblock">
+			    <div>
+					<h3>Предоставленная помощь</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, </p>
+					<a href="#" class="more_btn">Подробнее </a>
+				</div>
+            </div>
+        </div>
+		<div class="column column_4 border block_3">
+            <div class=" innerblock">
+			    <div>
+					<h3>Благотворительный маркет</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, </p>
+					<a href="#" class="more_btn">Подробнее </a>
+				</div>
+            </div>
+        </div>
+		<div class="column column_4 border block_4">
+            <div class=" innerblock">
+			    <div>
+					<h3>Наши <br />партнеры</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, </p>
+					<a href="#" class="more_btn">Подробнее </a>
+				</div>
+            </div>
+        </div>
+		
+		
+      </div>
+    </section>
+	
+    <section class="description">
+      <div class="container">
+		
+		<h2>Социальные проекты и акции </h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+      </div>
+    </section>
+	
+	<section class="content_blocks">
+      <div class="container">
+	  
+		<div class="block1 slider2">
+
+		  <div id="slides2">
+            <div class="outer_box">
+				<div class="slide">
+					<img src="img/content_block_1.png" alt="">
+					<div class="box">
+						<span class="data">Март 21, 2016</span>
+						<h2>Наши проекты </h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<a href="#" class="more_btn">Смотреть</a>
+					</div>
+				</div>
+			</div>
+			<div class="outer_box">
+				<div class="slide">
+					<img src="img/content_block_1.png" alt="">
+					<div class="box">
+						<span class="data">Март 21, 2016</span>
+						<h2>Наши проекты </h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<a href="#" class="more_btn">Смотреть</a>
+					</div>
+				</div>
+			</div>
+			<div class="outer_box">
+				<div class="slide">
+					<img src="img/content_block_1.png" alt="">
+					<div class="box">
+						<span class="data">Март 21, 2016</span>
+						<h2>Наши проекты </h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<a href="#" class="more_btn">Смотреть</a>
+					</div>
+				</div>
+			</div>
+
+		  </div>
+
+		</div>
+		
+		<div class="block2">
+		    
+			<div class="text">
+			    <span class="data">Март 21, 2016</span>
+				<h2>Счастливые мероприятия  </h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet</p>
+			</div>
+			<div class="look">
+			    <a href="#" class="more_btn">Смотреть</a>     
+			</div>
+        
+		</div>
+		    
+		<div class="block3">
+		    
+			<div class="look">
+			    <a href="#" class="more_btn">Смотреть</a>     
+			</div>
+			<div class="text">
+			    <span class="data">Март 21, 2016</span>
+				<h2> Предложения помощи </h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet</p>
+			</div>
+			
+        
+		</div>
+		
+      </div>
+    </section>
+
+    <section class="news_one">
+      <div class="container">
+	  
+	  
+		<a href="#" class="more_btn">Подписаться</a>
+		<div class="descr">Если вы хотите узнавать первыми о новых программах, предложения sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+		<div class="convert">Узнавайте первыми все новости</div>
+			
+		
+      </div>
+    </section>
+	
+	<section class="quote">
+      <div class="container">
+		<div class="palka"></div>
+		<span>“</span>Я на лошади. Ты на белом коне, и я на белом коне. А потом салют… в нашу честь. Салют в нашу честь. Сначала на парад, а потом в дом офицеров пойдём. 
+		<div class="palka"></div>
+      </div>
+    </section>
+	
+	
+	
+	
+	
+	
+	<section class="review">
+      <div class="container">
+		
+		<div class="slider3">
+			<div id="slides3">
+				<div class="slide">
+					<h2>+1547 БЛАГОДАРНОСТЕЙ</h2>
+					<div class="descr">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
+					</div>
+					<p>Катерина Неклюдова</p>
+					<p><a class="more" href="#">Узнать больше ></a></p>
+				</div>
+				<div class="slide">
+					<h2>+1547 БЛАГОДАРНОСТЕЙ</h2>
+					<div class="descr">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
+					</div>
+					<p>Катерина Неклюдова</p>
+					<p><a class="more" href="#">Узнать больше ></a></p>
+				</div>
+				<div class="slide">
+					<h2>+1547 БЛАГОДАРНОСТЕЙ</h2>
+					<div class="descr">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
+					</div>
+					<p>Катерина Неклюдова</p>
+					<p><a class="more" href="#">Узнать больше ></a></p>
+				</div>
+				<div class="slide">
+					<h2>+1547 БЛАГОДАРНОСТЕЙ</h2>
+					<div class="descr">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
+					</div>
+					<p>Катерина Неклюдова</p>
+					<p><a class="more" href="#">Узнать больше ></a></p>
+				</div>
+				<div class="slide">
+					<h2>+1547 БЛАГОДАРНОСТЕЙ</h2>
+					<div class="descr">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
+					</div>
+					<p>Катерина Неклюдова</p>
+					<p><a class="more" href="#">Узнать больше ></a></p>
+				</div>
+				
+			</div>
+		</div>
+		
+      </div>
+    </section>
+	
+	
+	<section class="description">
+      <div class="container2">
+			<h2>Новостные события </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p class="morelink"><a class="more" href="#">Все новости ></a></p>
+      </div>
+    </section>
+	
+	<section class="news">
+      <div class="container2">
+		
+		<div class="top">
+		    <div class="left">
+				<h2>В Израиле<br />обнаружили храм V века </h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur... <a class="more" href="#">читать далее</a></p>
+			</div>
+			<div class="right">
+				<img src="img/news_image.png" alt="">
+			</div>
+		</div>
+		
+		<div class="bottom_news">
+		    <div class="column column_3">
+				<h3><a href="#">Новость первая</a></h3>
+				<p>
+					<a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,</a>
+				</p>
+            </div>
+			<div class="column column_3">
+				<h3><a href="#">Новость вторая</a></h3>
+				<p>
+					<a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,</a>
+				</p>
+            </div>
+			<div class="column column_3">
+				<h3><a href="#">Новость третья</a></h3>
+				<p>
+					<a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,</a>
+				</p>
+            </div>
+        </div>
+		
+      </div>
+    </section>
+	
+	<section class="description">
+      <div class="container2">
+			<h2>Благотворительный макет  </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p class="morelink"><a class="more" href="#">Все товары ></a></p>
+      </div>
+    </section>
+	
+	<section class="tovar">
+      <div class="container2">
+	  
+	        <div class="odd">
+			    <div class="left">
+				    <div class="tovar_img">
+				        <div class="hov">
+							<p class="hov2"><img src="img/tsep.png" alt=""></p>
+							<a class="more_btn" href="#">смотреть</a>
+						</div>
+				        <img src="img/tovar.png" alt="">
+					</div>
+				    <div class="tovar_descr">
+					    <div class="tovar_inner">
+							<h3>Товар первый название и краткое описание</h3>
+							<p class="cena">755 грн</p>
+							<p><a class="more_btn" href="#">ПРИОБРЕСТИ</a></p>
+						</div>	
+					</div>
+			    </div>
+				<div class="right">
+			        <div class="tovar_img">
+				        <div class="hov">
+							<p class="hov2"><img src="img/tsep.png" alt=""></p>
+							<a class="more_btn" href="#">смотреть</a>
+						</div>
+				        <img src="img/tovar.png" alt="">
+					</div>
+				    <div class="tovar_descr">
+						<div class="tovar_inner">
+							<h3>Товар первый название и краткое описание</h3>
+							<p class="cena">755 грн</p>
+							<p><a class="more_btn" href="#">ПРИОБРЕСТИ</a></p>
+						</div>	
+					</div>
+			    </div>
+			</div>
+			
+			<div class="even">
+			    <div class="left">
+				    <div class="tovar_img">
+				        <div class="hov">
+							<p class="hov2"><img src="img/tsep.png" alt=""></p>
+							<a class="more_btn" href="#">смотреть</a>
+						</div>
+				        <img src="img/tovar.png" alt="">
+					</div>
+				    <div class="tovar_descr">
+						<div class="tovar_inner">
+							<h3>Товар первый название и краткое описание</h3>
+							<p class="cena">755 грн</p>
+							<p><a class="more_btn" href="#">ПРИОБРЕСТИ</a></p>
+						</div>	
+					</div>
+			    </div>
+				<div class="right">
+			        <div class="tovar_img">
+				        <div class="hov">
+							<p class="hov2"><img src="img/tsep.png" alt=""></p>
+							<a class="more_btn" href="#">смотреть</a>
+						</div>
+				        <img src="img/tovar.png" alt="">
+					</div>
+				    <div class="tovar_descr">
+						<div class="tovar_inner">
+							<h3>Товар первый название и краткое описание</h3>
+							<p class="cena">755 грн</p>
+							<p><a class="more_btn" href="#">ПРИОБРЕСТИ</a></p>
+						</div>	
+					</div>
+			    </div>
+			</div>
+      </div>
+    </section>
+  
+  
+    <section class="description">
+      <div class="container2">
+			<h2>Знакомства </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </section>
+	
+	<section class="datings">
+      <div class="container">
+		
+		    <div class="leftblock">
+				<h3>Найдите родственную душу и подружитесь </h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+				<a class="more" href="#">Cмотреть все &gt;</a>
+		    </div>
+		  
+		    <div class="user"> 
+				<div class="modalb">
+				    <p><a href="#">Наталья Корецкая</a></p>
+					<a href="#"><span>Любитель петь народные песни</span></a>
+				</div>
+				<a href="#" class="pict"><img src="img/face.png" alt=""></a>
+			</div>
+			<div class="user"> 
+				<div class="modalb">
+				    <p><a href="#">Наталья Корецкая</a></p>
+					<a href="#"><span>Любитель петь народные песни</span></a>
+				</div>
+				<a href="#" class="pict"><img src="img/face.png" alt=""></a>
+			</div>
+			<div class="user"> 
+				<div class="modalb">
+				    <p><a href="#">Наталья Корецкая</a></p>
+					<a href="#"><span>Любитель петь народные песни</span></a>
+				</div>
+				<a href="#" class="pict"><img src="img/face.png" alt=""></a>
+			</div>
+			<div class="user"> 
+				<div class="modalb">
+				    <p><a href="#">Наталья Корецкая</a></p>
+					<a href="#"><span>Любитель петь народные песни</span></a>
+				</div>
+				<a href="#" class="pict"><img src="img/face.png" alt=""></a>
+			</div>
+			<div class="user"> 
+				<div class="modalb">
+				    <p><a href="#">Наталья Корецкая</a></p>
+					<a href="#"><span>Любитель петь народные песни</span></a>
+				</div>
+				<a href="#" class="pict"><img src="img/face.png" alt=""></a>
+			</div>
+			<div class="user"> 
+				<div class="modalb">
+				    <p><a href="#">Наталья Корецкая</a></p>
+					<a href="#"><span>Любитель петь народные песни</span></a>
+				</div>
+				<a href="#" class="pict"><img src="img/face.png" alt=""></a>
+			</div>
+		  
+		
+      </div>
+    </section>
+	
+	<section class="description">
+      <div class="container2">
+			<h2>Видеоканал GCS Tube </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </section>
+	
+	<section class="videoblog">
+      <div class="container2">
+			<h2>Последние видео <span>Заголовок</span></h2>
+			<div class="videos scroll-pane">
+				<ul class="list_videos">
+				  <li>
+					  <a href="#tab-1">
+						  <img src="img/video_item.png" alt="">
+						  <p>1 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-2">
+						  <img src="img/video_item.png" alt="">
+						  <p>2 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-3">
+						  <img src="img/video_item.png" alt="">
+						  <p>3 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-4">
+						  <img src="img/video_item.png" alt="">
+						  <p>4 Видео один: заголовок один по шкп  пцупо дуц пцуд пцуд пт </p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-5">
+						  <img src="img/video_item.png" alt="">
+						  <p>5 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-6">
+						  <img src="img/video_item.png" alt="">
+						  <p>6 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-8">
+						  <img src="img/video_item.png" alt="">
+						  <p>8 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-9">
+						  <img src="img/video_item.png" alt="">
+						  <p>9 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-4">
+						  <img src="img/video_item.png" alt="">
+						  <p>4 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-5">
+						  <img src="img/video_item.png" alt="">
+						  <p>5 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-6">
+						  <img src="img/video_item.png" alt="">
+						  <p>6 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-8">
+						  <img src="img/video_item.png" alt="">
+						  <p>8 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				  <li>
+					  <a href="#tab-9">
+						  <img src="img/video_item.png" alt="">
+						  <p>9 Видео один: заголовок один</p>
+						  <span>1500 просмотров</span>
+					  </a>
+				  </li>
+				</ul>
+			</div>
+			<div class="big_video">
+			    <div id="tab-1">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<iframe width="509" height="278" style="border:none !important" src="https://www.youtube.com/embed/8cyWV_lktwg?showinfo=0" allowfullscreen></iframe>
+				</div>	
+				<div id="tab-2">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+				<div id="tab-3">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+				<div id="tab-4">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+				<div id="tab-5">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+				<div id="tab-6">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+				<div id="tab-7">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+				<div id="tab-8">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+				<div id="tab-9">
+					<div class="play">
+						<span><img src="img/play.png" alt=""></span>
+					</div>
+					<img src="img/video_big.png" alt="">
+				</div>	
+			</div>
+      </div>
+    </section>
+	
+	<section class="description">
+      <div class="container2">
+			<h2>Наши партнеры  </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </section>
+	
+	<section class="partners">
+      <div class="container">
+		<div class="slider4">
+			<ul class="slides">
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+						<a href="#"><img src="img/img_slider.png" alt=""></a>
+					</div>
+					<div class="box">
+					</div>
+					<div class="box">
+					</div>
+				</li>
+			</ul>
+		</div>
+      </div>
+    </section>
+	
+	<section class="description last">
+      <div class="container2">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident </p>
+      </div>
+    </section>
+	
+    <footer>
+      <div class="container3">
+        <div class="column firstcolumn column_4 border">
+		  <h4>Категории</h4>
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>	  
+		  <div class="column column_2">
+			  <p><a href="#">Ссылка 1</a></p>
+			  <p><a href="#">Ссылка 2</a></p>
+			  <p><a href="#">Ссылка 3</a></p>
+			  <p><a href="#">Ссылка 4</a></p>
+		  </div>
+        </div>
+        <div class="column column_4 border">
+		   <h4>Контакты</h4>
+			  <p><a href="#">Украина Киев <br /> ул. Дегтяревская 27</a></p>
+			  <p><a href="#">Схема проезда</a></p>
+			  <p class="phone">044-222-22-22 </p>
+        </div>
+		<div class="column column_4 third border">
+		   <h4>Наши партнеры</h4>
+            <p><a href="#">Ссылка 0</a></p>
+			<p><a href="#">Ссылка 1</a></p>
+			<p><a href="#">Ссылка 2</a></p>
+			<p><a href="#">Ссылка 3</a></p>
+			<p><a href="#">Ссылка 4</a></p>
+        </div>
+		<div class="column column_4 lastcolumn">
+		   <h4>Подписка</h4>
+		   <p>Будьте всегда в курсе новых событий!</p>
+           <form class="podpiska" action="#">
+			<input type="text" placeholder="Впишите здесь свой имейл" name="poisk" value="">
+			<input class="searchbut" type="submit" value="">
+		  </form>
+		  <p>Мы в социальных сетях</p>
+        </div>
+      </div>
+	  <div class="container3 downfooter">
+		  
+		  <div class="column left">
+			  
+			  <p>2016 GCS © All right reserved</p>
+			  
+		  </div>	  
+		  <div class="column right">
+			  
+			  <p>
+			     <a href="#"><img src="img/soc1.png" alt=""></a>
+				 <a href="#"><img src="img/soc2.png" alt=""></a>
+				 <a href="#"><img src="img/soc3.png" alt=""></a>
+				 <a href="#"><img src="img/soc4.png" alt=""></a>
+			  </p>
+		  </div>
+       
+      </div>
+    </footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,887 @@
+*{
+	margin:0;
+	padding:0;
+}
+body {
+  font-family: 'Lato', sans-serif;
+}
+body header {
+  font-size: 16px;
+  padding-top: 10px;
+  text-transform: capitalize;
+}
+body header .logo {
+  display:block;
+  position: relative;
+  top:12px;
+}
+body header .firstmenu {
+  float: right;
+  padding-left:0;
+}
+body header .firstmenu li {
+  list-style:none;
+  float:right
+}
+body header .firstmenu li a {
+  color: black;
+  margin-left: 32px;
+  text-decoration: none;
+}
+body header .secondmenu {
+  width: 100%;
+  height: 91px;
+  background-color: #f6f6f6;
+  margin-bottom: 13px;
+}
+body header .secondmenu ul {
+  float: right;
+  height: 100%;
+  padding-left:0;
+}
+body header .secondmenu ul li {
+  float: right;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  background-color: #05aecc;
+  position: relative;
+  margin-left: 5px;
+  color: white;
+  text-decoration: none;
+}
+body header .secondmenu ul li a{
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  background-color: #05aecc;
+  position: relative;
+  padding: 30px;
+  color: white;
+  text-decoration: none;
+}
+body header .secondmenu ul a img {
+  position: relative;
+  left: 8px;
+}
+body header .secondmenu .red {
+  background-color: #f0626e;
+}
+
+body header .navbar-default .navbar-nav.centered{
+margin:0 auto;
+float:none;
+display:inline-block;
+}
+
+.centerer{
+text-align:center;
+}
+
+.paddingleftmin{
+padding-left:2px
+}
+.paddingrightmin{
+padding-right:2px
+}
+
+@media screen and (max-width: 990px) {
+    .paddingleftmin{
+	padding-left:15px
+	}
+	.paddingrightmin{
+	padding-right:15px
+	}
+	.menublocktop{
+	padding-top:10px
+	}
+}
+
+.toppad{
+padding-top:5px
+}
+
+body header .navbar-default .navbar-nav > li {
+float:left;
+}
+body header .navbar-default .navbar-nav > li > a {
+  color: white;
+  height: 70px;
+  position: relative;
+}
+body header .navbar-default .navbar-nav > li > a:hover {
+  color: #ef5966;
+  background-color: white;
+}
+
+body header .navbar {
+  border-radius: 0;
+  width: 100%;
+  height: 71px;
+  background-color: #05aecc;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 15px;
+}
+body header .navbar a {
+  color: white;
+  line-height: 40px;
+}
+body header .sitemenu li{
+position:relative;
+}
+body header .sitemenu ul  {
+  background-color: white;
+  opacity:0.9;
+  display:none;
+  width: 263px;
+  height: auto;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  padding-top: 0;
+  position:absolute;
+  top:70px;
+  left:0;
+  z-index:100;
+  list-style:none;
+  padding-left:0;
+}
+body header .sitemenu li:hover ul  {
+  display:block;
+}
+body header .sitemenu ul li:last-child{
+padding: 0 23px 0 21px
+}
+body header .sitemenu ul  .more {
+  display: block;
+  width: 100%;
+  line-height: 42px;
+  color: #ef5966;
+  font-size: 16px;
+  text-align:left;
+}
+body header .sitemenu ul li{
+  border-bottom:1px solid #e5e5e5;
+  padding: 15px 23px 15px 21px;
+}
+
+body header .sitemenu ul  li  .img {
+  width: 72px;
+  height: 76px;
+  float: left;
+  margin-right: 12px;
+}
+body header .sitemenu ul  li  .item h4 {
+  color: #ef5966;
+  margin-bottom: 9px;
+  margin-top:0
+}
+body header .sitemenu ul   li .item p {
+  color: #454545;
+  font-size: 13px;
+  line-height: 13px;
+  margin-bottom: 4px;
+}
+body header .sitemenu ul  li  .item a {
+  display: inline-block;
+  width: 120px;
+  height: 23px;
+  background-color: #05aecc;
+  color: white;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 5px;
+}
+body .girl_count {
+  display:block;
+  width: 292px;
+  height: 55px;
+  line-height: 55px;
+  background-color: #05aecc;
+  position: absolute;
+  right: 0;
+  bottom: 22px;
+  text-align: center;
+  color: white;
+  z-index: 999;
+  filter: contrast(100%) brightness(100%);
+}
+body .girl_count img {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+}
+body .girl_count .babybox {
+  font-size: 16px;
+}
+body .girl_count .count {
+  display:block;
+  width: 90px;
+  height: 100%;
+  background-color: #323232;
+  font-size: 24px;
+  float: right;
+  padding-left: 15px;
+}
+body .girl_count .count .valuta {
+  font-size: 16px;
+  margin-right: 3px;
+}
+body .girl_count .count .valuta2 {
+  font-size: 13px;
+  position: relative;
+  bottom: 6px;
+}
+body .girl_count .corzina {
+  width: 52px;
+  height: 100%;
+  background-color: #f0626e;
+  float: right;
+  position: relative;
+}
+body .girl_count .box {
+  width: 52px;
+  height: 100%;
+  background-color: #00a1be;
+  float: right;
+  position: relative;
+}
+body .wear {
+  margin-bottom: 38px;
+}
+body .wear .textblock {
+  width: 360px;
+  height: 100px;
+  opacity: 0.8;
+  background-color: #362a4f;
+  position: absolute;
+  bottom: 55px;
+  padding: 5px 19px 5px 19px;
+  text-transform: uppercase;
+}
+body .wear .textblock h2 {
+  font-family: 'Lora', serif;
+  color: #ef5966;
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 700;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+body .wear .textblock p {
+  color: white;
+  font-size: 13px;
+}
+body .wear .minitext {
+  width: 360px;
+  height: 40px;
+  opacity: 0.88;
+  background-color: #ef5966;
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  text-transform: uppercase;
+  padding: 10px 7px 0 16px;
+}
+body .wear .men {
+  background-image: url(../img/boys.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 570px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+
+body .wear .women {
+  background-image: url(../img/girls.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 320px;
+  position: relative;
+  margin-bottom: 5px;
+  position:relative;
+  overflow:hidden;
+}
+body .wear .women .textblock {
+  width: 270px;
+  height: 83px;
+  bottom: 10px;
+}
+body .wear .women .textblock h2 {
+  font-size: 28px;
+  line-height: 28px;
+  margin-top: 8px;
+}
+body .wear .women .textblock p {
+  font-size: 12px;
+}
+body .wear .girl {
+  background-image: url(../img/girl.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 245px;
+  transition: filter 1s;
+  position:relative;
+  overflow:hidden;
+}
+body .wear img.inblock{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+transition:all 1s
+}
+body .wear .girl:hover .inblock{
+  background-color: #142251;
+  filter: contrast(60%) brightness(60%);
+}
+body .wear .search {
+  background-color: #f0626e;
+  width: 100%;
+  height: 171px;
+  margin-bottom: 5px;
+}
+body .wear .search form {
+  position: relative;
+  top: 50px;
+  left: 82px;
+}
+body .wear .search form #placeholder {
+  color: #424242;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 370px;
+  height: 70px;
+  background-color: #fff;
+  text-align: center;
+  padding-top: 25px;
+  font-size: 16px;
+}
+body .wear .search form .silver {
+  color: #c2c2c2;
+}
+body .wear .search form input {
+  outline:none;
+  width: 370px;
+  height: 70px;
+  box-shadow: 1px 1.7px 7px rgba(0, 0, 0, 0.19);
+  border-radius: 0;
+  float: left;
+  margin-right: 20px;
+  font-size: 30px;
+  line-height: 30px;
+  z-index: 100;
+  border:0;
+  padding:0 20px 
+}
+body .wear .search button {
+  background-color: transparent;
+  border: none;
+  height: 71px;
+  outline: none;
+  float: left;
+}
+body .wear .crafts {
+  background-image: url(../img/birds.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 335px;
+  position: relative;
+}
+body .wear .crafts .crafts2 {
+  width: 409px;
+  height: 55px;
+  opacity: 0.8;
+  background-color: #362a4f;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-left: 47px;
+  color: white;
+}
+body .wear .crafts .crafts2 img {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+}
+body .wear .crafts .crafts2 .count {
+  width: 96px;
+  height: 55px;
+  background-color: #323232;
+  font-size: 24px;
+  float: right;
+  text-align: center;
+  padding-top: 10px;
+}
+body .valuta {
+  font-size: 16px;
+  margin-right: 3px;
+}
+body .valuta2 {
+  font-size: 13px;
+  position: relative;
+  top: -7px;
+}
+body .wear .crafts .crafts2 .corzina {
+  width: 53px;
+  height: 55px;
+  background-color: #f0626e;
+  float: right;
+  position: relative;
+}
+body .wear .crafts .crafts2 .box {
+  width: 53px;
+  height: 55px;
+  background-color: #00a1be;
+  float: right;
+  position: relative;
+}
+body .wear .crafts .crafts2 .craftsbox {
+  text-align: center;
+  font-size: 30px;
+  line-height: 55px;
+  text-transform: uppercase;
+}
+body .overblock {
+  background-image: url(../img/clock.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 510px;
+  position: relative;
+}
+body .overblock .skos {
+  width: 0;
+  height: 0;
+  border-top: 12px solid #c4515b;
+  border-left: 12px solid transparent;
+  position: absolute;
+  right: 88px;
+  top: 222px;
+}
+body .overblock .arrow {
+  width: 100px;
+  height: 90px;
+  opacity: 0.99;
+  background-color: #f0626e;
+  position: absolute;
+  right: 0;
+  top: 132px;
+  z-index:101;
+}
+body .overblock .arrow .krug {
+  width: 53px;
+  height: 53px;
+  background-color: white;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  top: 16px;
+  left: 20px;
+}
+body .overblock .arrow .krug img {
+  position: absolute;
+  top: 32%;
+  left: 41%;
+}
+body .overblock .overblock-text {
+  width: 87px;
+  height: 396px;
+  background-color: rgba(54, 42, 79, 0.58);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+body .overblock .overblock-text .jewelry-text {
+  font-family: 'Lora', serif;
+  transform: rotate(270deg);
+  transform-origin: left top 0;
+  color: white;
+  position: relative;
+  left: 7px;
+  top: 372px;
+  font-size: 52px;
+  text-transform: uppercase;
+  z-index:10
+}
+
+.tooltip.top > .tooltip-inner {
+  background-color: white;
+  color: black;
+}
+.tooltip.top > .tooltip-arrow {
+  border-top-color: white;
+}
+
+body .who h2 {
+  color: #05aecc;
+  font-size: 30px;
+  position: relative;
+  border-bottom: 1px solid #b9b9b9;
+  padding-left:30px;
+  padding-bottom:10px;
+}
+body h2 .redline {
+  position:absolute;
+  bottom:-1px;
+  width: 182px;
+  height: 1px;
+  background-color: #f0626e;
+  position: absolute;
+  left: 30px;
+}
+
+body .who .text {
+  width: 100%;
+  height: auto;
+  color: #464646;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 30px;
+  position: relative;
+}
+  
+body .who .box {
+  display: block;
+  width: 100%;
+  height: 232px;
+  position: relative;
+}
+body .who .box span {
+  display: block;
+  width: 125px;
+  height: auto;
+  position: absolute;
+  top: 38%;
+  right: 40px;
+  color: white;
+  font-size: 30px;
+  line-height: 30px;
+}
+body .who .box img {
+  position: absolute;
+  top: 15%;
+  left: 34px;
+}
+body .who .who1 {
+  background-color: #434343;
+}
+body .who .who2 {
+  background-color: #05aecc;
+}
+body .who .who3 {
+  background-color: #f0626e;
+}
+body .who .who3 span {
+  top: 104px;
+}
+body .who .register-button {
+  width: 100%;
+  height: 61px;
+  margin-top: 31px;
+}
+body .who .register-button a{
+  text-align: center;
+  display: block;
+  max-width: 648px;
+  height: 61px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-top: 18px;
+  background-color: #05aecc;
+  text-decoration: none;
+  color: white;
+  margin: 0 auto;
+}
+body footer {
+  font-weight: 400;
+  line-height: 30px;
+}
+
+
+body footer .footer2{
+  padding-top:20px
+}
+
+body footer .container {
+  border-top: 1px #b9b9b9 solid;
+  margin-top: 30px;
+}
+body footer h3 {
+  color: #434343;
+  font-size: 25px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 990px) {
+    body footer  {
+		text-align:center
+	}
+}
+
+body footer .keeptitle {
+  margin-top: 34px;
+  margin-bottom: 19px;
+}
+body footer ul {
+  color: #676767;
+  font-size: 16px;
+  list-style: none;
+  padding: 0;
+}
+body footer .mail input{
+  border-radius: 0;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  height: 71px;
+  outline:none;
+}
+body footer .socialbuttons {
+  width: 100%;
+  height: 55px;
+}
+body footer .socialbuttons > a {
+  width: 55px;
+  height: 55px;
+  float: left;
+  margin-right: 11px;
+  display: block;
+  text-align: center;
+}
+
+body .subscribe {
+  border-radius: 0;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  height: 51px;
+  background-color: #05aecc;
+}
+body .navbar-form {
+  display: none;
+}
+
+.bottomfooter{
+    border-top: 1px #b9b9b9 solid;
+	border-bottom: 1px #b9b9b9 solid;
+	padding:15px;
+	margin-bottom:20px
+}
+.bottomfooter .right{
+	text-align:right
+}
+.bottomfooter .right a{
+    color:#f0626e
+}
+
+body .carousel .slider {
+	width: 100%;
+	margin: 90px auto;
+	margin-bottom:40px
+}
+
+body .carousel .slick-slide {
+  margin: 0px 20px;
+  position:relative;
+  height:202px;
+  overflow:hidden
+}
+
+/* .slick-slide img {
+  width: 100%;
+} */
+
+body .carousel .slick-prev:before,
+body .carousel .slick-next:before {
+	color: black;
+}
+
+body .carousel h2 {
+    color: #05aecc;
+    font-size: 30px;
+    position: relative;
+    border-bottom: 1px solid #b9b9b9;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+body .carousel .slidecontent{
+position:relative;
+}
+/* body .slidecontent .girl_count img {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+} */
+
+body .carousel .girl_count {
+    display: block;
+    width: 292px;
+    height: 55px;
+    line-height: 55px;
+    background-color: #05aecc;
+    position: relative;
+	margin:0 auto;
+    right: 0;
+    bottom: auto;
+	top:66px;
+    text-align: center;
+    color: white;
+    z-index: 999;
+    filter: contrast(100%) brightness(100%);
+}
+body .carousel .slick-slide .slideimage {
+    position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	transition: filter 1s;
+}
+
+body .carousel .slick-slide:hover .slideimage{
+    filter: contrast(60%) brightness(60%);
+}
+
+body .carousel .slick-prev,
+body .carousel .slick-next{
+top: -66px;
+}
+
+@media screen and (max-width: 990px) {
+    body .carousel .slick-prev,
+	body .carousel .slick-next{
+	top: -130px;
+	}
+}
+
+
+body .regular2 .red-line {
+  width: 255px;
+}
+
+body .carousel .regular2 .slick-slide {
+    margin: 0px 20px;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+body .regular2 .image{
+display:block;
+position:absolute;
+width:100%;
+}
+
+body .regular2 .image img{
+width:100%
+}
+
+body .regular2 .featured-count {
+    width: 100%;
+    height: 110px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    border: 1px #d9dadc solid;
+}
+body .regular2 .featured-count .block-featured-1 {
+  width: 100%;
+  height: 55px;
+  position: absolute;
+  top: 0;
+  padding-left: 13px;
+}
+body .regular2 .featured-count .block-featured-1 h3 {
+  color: #434343;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+body .regular2 .featured-count .block-featured-1 span {
+  color: #f0626e;
+  font-size: 13px;
+  font-weight: 400;
+}
+body .regular2 .featured-count .block-featured-2 {
+  width: 100%;
+  height: 55px;
+  position: absolute;
+  bottom: 0;
+  background-color: #f0626e;
+}
+body .regular2 .featured-count .block-featured-2 a {
+  width: 54px;
+  height: 100%;
+  border-top: 1px #d9dadc solid;
+  border-right: 1px #d9dadc solid;
+  background-color: white;
+  float: left;
+  position: relative;
+}
+body .regular2 .featured-count .block-featured-2 a img {
+  position: absolute;
+  top: 33%;
+  left: 33%;
+}
+body .regular2 .featured-count .block-featured-2 .count {
+  height: 100%;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 10px;
+  color: white;
+  float: right;
+  padding-right:10px;
+}
+body .regular2 .featured-count .block-featured-2 .count .valuta {
+  font-size: 16px;
+  margin-right: 3px;
+}
+body .regular2 .featured-count .block-featured-2 .count .valuta2 {
+  font-size: 13px;
+  position: relative;
+  top: -7px;
+}
+body .regular2 .slick-prev:hover, body .regular2 .slick-next:hover{
+background-color:#f0626e
+}
+
+body .regular2 .lyamzik{
+display:inline-block;
+position:absolute;
+top:20px;
+left:0;
+padding:5px 10px;
+background-color:#f0626e;
+color:#fff;
+z-index:102
+}
+
+body .regular2 .new .lyamzik{
+background-color:#05aecc;
+}
+body .regular2 .new  .featured-count .block-featured-1 span {
+    color: #05aecc;
+}
+body .regular2 .new .featured-count .block-featured-2 {
+  background-color: #05aecc;
+}
+
+
